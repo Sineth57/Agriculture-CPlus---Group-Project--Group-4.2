@@ -57,7 +57,7 @@ body{
 
 .message span{
    color:var(--white);
-   font-size: 2rem;
+   font-size: 3rem;
 }
 
 .message i{
