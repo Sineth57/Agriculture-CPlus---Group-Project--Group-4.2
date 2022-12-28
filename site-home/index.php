@@ -68,7 +68,7 @@
         <div class="service-item">
           <div class="icon"><a href="#"><img src="https://img.icons8.com/external-flat-icons-inmotus-design/67/000000/external-Buy-label-flat-icons-inmotus-design.png"/></a>
           </div>
-          <h2><a href="sellitem.html">See Listed items</h2></a>
+          <h2><a href="">See Listed items</h2></a>
           <p>Browse through the platform to view all listed items and find products to buy</p>
         </div>
       </div>
