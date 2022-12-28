@@ -60,9 +60,9 @@
       </div>
       <div class="service-bottom">
         <div class="service-item">
-          <div class="icon"><a href="web-full/php admin crud/admin_page.php"><img src="https://img.icons8.com/arcade/64/000000/experimental-sale-arcade.png"/></a>
+          <div class="icon"><a href="admin_page.php"><img src="https://img.icons8.com/arcade/64/000000/experimental-sale-arcade.png"/></a>
           </div>
-          <h2><a href="/php admin crud/admin_page.php">Sell Your item</h2></a>
+          <h2><a href="admin_page.php">Sell Your item</h2></a>
           <p>List and manage your products directly on the platform and find potential buyers</p>
         </div>
         <div class="service-item">
