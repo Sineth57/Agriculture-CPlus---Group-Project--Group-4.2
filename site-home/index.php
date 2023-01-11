@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agriculture</title>
+    <title>C Plus </title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
 </head>
 
 <body>
@@ -205,9 +207,11 @@
                         <h2>sample@gmail.com</h2>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
+
 
     <section id="footer">
         <div class="footer container">
