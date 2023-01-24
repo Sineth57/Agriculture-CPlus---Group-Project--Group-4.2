@@ -47,12 +47,46 @@ if(isset($_GET['delete'])){
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+<<<<<<< Updated upstream
    <link rel="stylesheet" href="css/style.css">
+=======
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+>>>>>>> Stashed changes
 
 </head>
 <body style="background-image: url('B1.jpg');">
 
+<<<<<<< Updated upstream
 <?php
+=======
+    <?php if (isset($message)) {
+        foreach ($message as $message) {
+            echo '<span class="message">' . $message . '</span>';
+        }
+    } ?>
+
+
+
+
+    <div class="container">
+
+        <div class="admin-product-form-container">
+
+            <form action="<?php $_SERVER[
+                'PHP_SELF'
+            ]; ?>" method="post" enctype="multipart/form-data">
+                <h3>add a new product</h3>
+                <input type="text" placeholder="Enter product name" name="product_name" class="box">
+
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"></span>
+                    <textarea class="box" placeholder="Enter product description" name="product_description"
+                        required></textarea>
+                </div>
+>>>>>>> Stashed changes
 
 if(isset($message)){
    foreach($message as $message){

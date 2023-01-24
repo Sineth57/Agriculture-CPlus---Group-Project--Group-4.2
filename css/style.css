@@ -106,7 +106,7 @@ h5 {
 }
 
 .btn{
-   background-color: var(--blue);
+   background-color: rgb(74, 180, 74);
 }
 
 .delete-btn{
@@ -145,7 +145,7 @@ h5 {
 .form-container form{
    width: 50rem;
    border-radius: .5rem;
-   background-color: var(--black);
+   background-color: rgb(240, 239, 239);
    padding:2rem;
    text-align: center;
 }
@@ -153,8 +153,9 @@ h5 {
 .form-container form h3{
    font-size: 3rem;
    margin-bottom: 1rem;
-   color:var(--white);
+   color:var(black);
    text-transform: uppercase;
+   font-weight: bold;
 }
 
 .form-container form .box{
@@ -162,14 +163,14 @@ h5 {
    border-radius: .5rem;
    padding:1.2rem 1.4rem;
    font-size: 1.8rem;
-   color:var(--white);
-   background-color: var(--light-bg);
+   color:var(--black);
+   background-color: var(--white);
    margin:1rem 0;
 }
 
 .form-container form p{
    font-size: 2.3rem;
-   color:var(--light-color);
+   color:var(--black);
    padding:1rem 0;
 }
 
