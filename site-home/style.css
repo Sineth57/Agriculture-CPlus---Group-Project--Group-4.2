@@ -194,7 +194,7 @@ p{
 
 /*start top*/
 #top{
-    background-image: url(./img/pexels-pixabay-207247.jpg);
+    background-image: url(./img/);
     background-size: cover;
     background-position: top center;
     position: relative;
@@ -210,6 +210,7 @@ p{
     width: 100%;
     background-color: black;
     z-index: -1;
+	
 }
 #top h1{
     display: block;
@@ -218,6 +219,20 @@ p{
     position: relative;
     color: white;
 	float: left;
+	margin-left: 150px;
+	margin-top: 120px;
+}
+#top h2{
+    display: block;
+    width: fit-content;
+    font-size: 3.5rem;
+    position: relative;
+    color: white;
+	float: left;
+	margin-top: 10px;
+	margin-right: 300px;
+	margin-left: 150px;
+	font-size: 40px;
 }
 
 .btn {
@@ -228,10 +243,11 @@ p{
 	background-color: transparent;
 	border: 2px solid yellowgreen;
 	font-size: 2rem;
-	margin-top: 30px;
-    margin-left: 175px;
+	margin-top: 120px;
+    margin-right: 300px;
 	transition: 0.6s ease;
 	transition-property: background-color, color;
+	margin-left: 150px;
 }
 .btn:hover {
 	color: black;
@@ -688,3 +704,27 @@ p{
 	}
 }
 /*end media querie*/
+
+.bc-vdio{
+	position: absolute;
+	width: 100%;
+	bottom:0;
+	z-index: -1;
+}
+#imgimgimg{
+	width: 70px;
+	height: 70px;
+	
+}
+@media(min-aspect-ratio: 16/9){
+	.bc-vdio{
+		width: 100%;
+		height: auto;
+	}
+}
+@media(max-aspect-ratio: 16/9){
+	.bc-vdio{
+		width: auto;
+		height: 100%;
+	}
+}

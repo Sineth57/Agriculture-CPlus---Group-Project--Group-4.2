@@ -22,10 +22,13 @@ if (isset($_GET['delete'])) {
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
 
+
     <title>Database</title>
 </head>
 
 <body style="background-image: url('pexels-pixabay-207247.jpg');">
+
+
 
     <?php $select = mysqli_query($conn, 'SELECT * FROM products2'); ?>
     <div class="product-display">
@@ -45,8 +48,8 @@ if (isset($_GET['delete'])) {
             <tr>
                 <td><?php echo $row['id']; ?></td>
                 <td><img src="uploaded_img/<?php echo $row[
-                'image'
-            ]; ?>" height="100" alt=""></td>
+                    'image'
+                ]; ?>" height="100" alt=""></td>
                 <td><?php echo $row['name']; ?></td>
                 <td>Rs.<?php echo $row['price']; ?>/-</td>
                 <td><?php echo $row['description']; ?></td>
@@ -54,11 +57,11 @@ if (isset($_GET['delete'])) {
 
                 <td>
                     <a href="admin_update.php?edit=<?php echo $row[
-                   'id'
-               ]; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
+                        'id'
+                    ]; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
                     <a href="admin_page.php?delete=<?php echo $row[
-                   'id'
-               ]; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
+                        'id'
+                    ]; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
                 </td>
             </tr>
             <?php } ?>

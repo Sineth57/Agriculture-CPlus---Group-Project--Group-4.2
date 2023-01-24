@@ -25,10 +25,13 @@ if (!isset($user_id)) {
 
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
 
 </head>
 
 <body style="background-image: url('tea-plantations-fields-working-women-wallpaper.jpg'); width:100%">
+
+
 
     <h1 class="title"> <span>user</span> profile page </h1>
     <h5>Click 'Home' button to go to Home </h5>
@@ -36,10 +39,10 @@ if (!isset($user_id)) {
     <section class="profile-container">
 
         <?php
-   $select_profile = $conn->prepare('SELECT * FROM `users` WHERE id = ?');
-   $select_profile->execute([$user_id]);
-   $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-   ?>
+        $select_profile = $conn->prepare('SELECT * FROM `users` WHERE id = ?');
+        $select_profile->execute([$user_id]);
+        $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+        ?>
 
         <div class="profile">
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">

@@ -102,13 +102,14 @@ body{
 	right: 100px;
 	z-index: 999;
 	cursor: pointer;
+	margin-top: 150px;
 }
 .fab-icon-holder:hover{
 	opacity: 0.8;
 }
 .fab {
-	width: 10px;
-	height: 10px;
+	width: 25px;
+	height: 25px;
 }
 
 @media screen and (max-width: 1024px){

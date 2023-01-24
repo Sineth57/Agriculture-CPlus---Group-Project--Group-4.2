@@ -14,7 +14,7 @@
     <!--start fab-floating action button (messenger icon)-->
     <div class="fab-container">
         <div class="fab fab-icon-holder">
-            <a href="https://www.messenger.com/"><img src="./img/messenger.png" alt="img"></a>
+            <a href="#contact"><img id="imgimgimg" src="./img/111.png" alt="img"></a>
         </div>
     </div>
     <!--end fab-->
@@ -48,11 +48,15 @@
 
     <!--start top-->
     <section id="top">
+
         <div class="top container">
+            <video autoplay loop muted plays-inline class="bc-vdio">
+                <source src="img/video.mp4" type="video/mp4">
+            </video>
             <div>
-                <h1>Welcome to Agriculture</h1>
+                <h1>Welcome to Agri-Zone</h1>
                 <br>
-                <h1>COME & GET YOUR SERVICE</h1>
+                <h2>JOIN WITH US TO GET YOUR SERVICE</h2>
                 <a href="#service" type="button" class="btn">GET START</a>
                 <!--button to quick access to service tab-->
             </div>
@@ -70,7 +74,7 @@
             </div>
             <div class="service-bottom">
                 <div class="service-item">
-                    <div class="icon"><a href="admin_page.php"><img src="sell.png"></a>
+                    <div class="icon"><a href="../php admin crud/admin_page.php"><img src="sell.png"></a>
                         <!--form to sell items-->
                     </div>
                     <h2><a href="admin_page.php">Sell Your item</h2></a>
