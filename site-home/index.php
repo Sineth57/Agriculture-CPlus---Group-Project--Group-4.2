@@ -64,6 +64,16 @@
     </section>
     <!--end top-->
 
+    <style>
+    body {
+        background: url(B1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+    </style>
+
     <!--start service-->
     <section id="service">
         <div class="service container">
@@ -170,7 +180,7 @@
                 <br><br><br>
             </div>
         </div>
-    </section>
+    </section> -->
     <!--end blog-->
 
     <!--start about-->
