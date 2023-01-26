@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C PLUS</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
 </head>
 
 <body>
@@ -87,7 +88,7 @@
                     <div class="icon"><a href="../php admin crud/admin_page.php"><img src="sell.png"></a>
                         <!--form to sell items-->
                     </div>
-                    <h2><a href="admin_page.php">Sell Your item</h2></a>
+                    <h2><a href="../php admin crud/admin_page.php">Sell Your item</h2></a>
                     <p>List and manage your products directly on the platform and find potential buyers</p>
                 </div>
                 <div class="service-item">

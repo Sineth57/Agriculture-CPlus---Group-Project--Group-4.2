@@ -87,7 +87,8 @@ if (isset($_GET['delete'])) {
 
 
                 <input type="number" placeholder="Enter product price" name="product_price" class="box">
-                <input type="number" placeholder="Enter phone number" name="product_pnumber" class="box">
+                <input type="number" placeholder="Enter user ID and phone number (Eg: 05 - 0712345678)"
+                    name="product_pnumber" class="box">
                 <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
                 <input type="submit" class="btn" name="add_product" href="database.php" value="add product">
 

@@ -44,13 +44,14 @@ if (!isset($admin_id)) {
 
         <div class="profile">
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
-            <h3> Hello <?= $fetch_profile['name'] ?></h3>
+            <h3>User ID: <?= $fetch_profile['id'] ?></h3>
+            <h3>Name: <?= $fetch_profile['name'] ?></h3>
             <a href="admin_profile_update.php" class="btn">update profile</a>
             <a href="logout.php" class="delete-btn">logout</a>
             <div class="flex-btn">
 
 
-                <a href="php admin crud/database.php" class="btn">Item Informtion</a>
+                <a href="php admin crud/database.php" class="btn">User Listning Requests</a>
 
             </div>
             <br>
