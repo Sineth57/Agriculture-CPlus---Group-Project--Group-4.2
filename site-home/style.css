@@ -194,11 +194,12 @@ p{
 
 /*start top*/
 #top{
-    background-image: url(./img/);
+    background-image: url(./img/pexels-pixabay-207247.jpg);
     background-size: cover;
     background-position: top center;
     position: relative;
     z-index: 1;
+
 }
 #top::after{
     content: '';
@@ -210,7 +211,6 @@ p{
     width: 100%;
     background-color: black;
     z-index: -1;
-	
 }
 #top h1{
     display: block;
@@ -221,18 +221,6 @@ p{
 	float: left;
 	margin-left: 150px;
 	margin-top: 120px;
-}
-#top h2{
-    display: block;
-    width: fit-content;
-    font-size: 3.5rem;
-    position: relative;
-    color: white;
-	float: left;
-	margin-top: 10px;
-	margin-right: 300px;
-	margin-left: 150px;
-	font-size: 40px;
 }
 
 .btn {
@@ -255,10 +243,8 @@ p{
 }
 /*end top*/
 
-/*start service
-#service{
-    background: linear-gradient(60deg, #cfffd6 0%, #deff68 100%);;
-} */
+/*start service*/
+
 #service .service{
     flex-direction: column;
     text-align: center;
@@ -292,9 +278,8 @@ p{
     flex-direction: column;
     padding: 30px;
     border-radius: 10px;
-	background-image:linear-gradient(rgba(0, 0, 0, 0.01),rgba(0, 0, 0, 0.1)), url(img/images\ \(1\).jpeg);
-    background-size: cover;
-    margin: 10px 5%;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.01),rgba(0, 0, 0, 0.1)), url(img/images\ \(1\).jpeg);
+	margin: 10px 5%;
 	width: 400px;
 	height: 150px;
 	
@@ -304,10 +289,8 @@ p{
 }
 /*end service*/
 
-/*start blog
-#blog{
-	background: linear-gradient(60deg, #cfffd6 0%, #deff68 100%);;
-}*/
+/*start blog*/
+
 #blog .blog{
     flex-direction: column;
     max-width: 120px;
@@ -328,21 +311,21 @@ p{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 70%;
-    margin: 10px auto;
-    overflow: hidden;
+    width: 80%;
+    margin: 10px;
+                             
     border-radius: 10px;
 }
 #blog .blog-info{
     padding: 30px;
     flex-basis: 50%;
     height: 700px;
-	width: 500px;
+	width: 450px;
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
-    background-image: linear-gradient(60deg, #296d33 0%, #79cf17 100%); 
+    background-image: linear-gradient(60deg, #296d33 0%, #79cf17 100%);
 	color: white;
 }
 #blog .blog-info h1 {
@@ -357,7 +340,7 @@ p{
 #blog .blog-img {
 	flex-basis: 50%;
 	height: 700px;
-    width: 600px;
+    width: 450px;
 	overflow: hidden;
 	position: relative;
 }
@@ -367,7 +350,7 @@ p{
 	left: 0;
 	top: 0;
 	height: 100%;
-	width: 100%;
+	width: 90%;
 	opacity: 0.7;
 }
 #blog .blog-img img {
@@ -395,9 +378,6 @@ p{
 /*end blog*/
 
 /*start about*/
-/*#about{
-	background: linear-gradient(60deg, #cfffd6 0%, #deff68 100%);;
-}*/
 #about .about {
 	flex-direction: column-reverse;
 	text-align: center;
@@ -422,10 +402,7 @@ p{
 }
 /*end about*/
 
-/*start contact
-#contact{
-	background: linear-gradient(60deg, #cfffd6 0%, #deff6856 100%);;
-}*/
+/*start contact*/
 #contact .contact{
     flex-direction: column;
 	max-width: 1200px;
@@ -478,9 +455,6 @@ p{
 /*end contact*/
 
 /*start message box*/
-/*#msg{
-	background: linear-gradient(60deg, #2aff4a 0%, #ecff839c 100%);
-}*/
 #mgs .container{
 	position: relative;
 	width: 100%;
@@ -705,17 +679,6 @@ p{
 }
 /*end media querie*/
 
-.bc-vdio{
-	position: absolute;
-	width: 100%;
-	bottom:0;
-	z-index: -1;
-}
-#imgimgimg{
-	width: 70px;
-	height: 70px;
-	
-}
 @media only screen and (min-width: 880px) {
 	.bc-vdio{
 		width: 100%;
@@ -727,4 +690,25 @@ p{
 		width: auto;
 		height: 100%;
 	}
+}
+
+
+.bc-vdio{
+	position: absolute;
+	width: 100%;
+	
+	bottom:0;
+	z-index: -1;
+}
+#top h2{
+    display: block;
+    width: fit-content;
+    font-size: 3.5rem;
+    position: relative;
+    color: white;
+	float: left;
+	margin-top: 10px;
+	margin-right: 300px;
+	margin-left: 150px;
+	font-size: 40px;
 }
