@@ -3,6 +3,7 @@
 @include 'config.php';
 
 if (isset($_POST['add_product'])) {
+    $product_userid = $_POST['product_userid'];
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
     $product_image = $_FILES['product_image']['name'];
@@ -12,29 +13,30 @@ if (isset($_POST['add_product'])) {
     $product_image_folder = 'uploaded_img/' . $product_image;
 
     if (
+        empty($product_userid) ||
         empty($product_name) ||
         empty($product_price) ||
         empty($product_image) ||
         empty($product_description) ||
         empty($product_pnumber)
     ) {
-        $message[] = 'please fill out all';
+        $message[] = 'Please fill out all';
     } else {
-        $insert = "INSERT INTO products2(name, price, image, description, pnumber) VALUES('$product_name', '$product_price', '$product_image', '$product_description', '$product_pnumber')";
+        $insert = "INSERT INTO products(userid, name, price, image, description, pnumber) VALUES('$product_userid', '$product_name', '$product_price', '$product_image', '$product_description', '$product_pnumber')";
         $upload = mysqli_query($conn, $insert);
         if ($upload) {
             move_uploaded_file($product_image_tmp_name, $product_image_folder);
-            $message[] = 'new product added successfully';
+            $message[] = 'New product added successfully';
         } else {
-            $message[] = 'could not add the product';
+            $message[] = 'Could not add the product';
         }
     }
 }
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM products2 WHERE id = $id");
-    header('location:admin_page.php');
+    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
+    header('location:database.php');
 }
 ?>
 
@@ -75,6 +77,8 @@ if (isset($_GET['delete'])) {
                 'PHP_SELF'
             ]; ?>" method="post" enctype="multipart/form-data">
                 <h3>add a new product</h3>
+
+                <input type="number" placeholder="Enter User ID" name="product_userid" class="box">
                 <input type="text" placeholder="Enter product name" name="product_name" class="box">
 
 
@@ -87,8 +91,7 @@ if (isset($_GET['delete'])) {
 
 
                 <input type="number" placeholder="Enter product price" name="product_price" class="box">
-                <input type="number" placeholder="Enter user ID and phone number (Eg: 05 - 0712345678)"
-                    name="product_pnumber" class="box">
+                <input type="number" placeholder="Enter phone number " name="product_pnumber" class="box">
                 <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
                 <input type="submit" class="btn" name="add_product" href="database.php" value="add product">
 

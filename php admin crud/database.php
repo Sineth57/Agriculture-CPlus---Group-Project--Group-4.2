@@ -3,8 +3,8 @@
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM products2 WHERE id = $id");
-    header('location:admin_page.php');
+    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
+    header('location:database.php');
 }
 ?>
 
@@ -30,13 +30,14 @@ if (isset($_GET['delete'])) {
 
 
 
-    <?php $select = mysqli_query($conn, 'SELECT * FROM products2'); ?>
+    <?php $select = mysqli_query($conn, 'SELECT * FROM products'); ?>
     <div class="product-display">
         <table class="product-display-table">
             <thead>
                 <tr style="background-color: black; color:gray">
                     <th>Item ID</th>
                     <th>product image</th>
+                    <th>User ID</th>
                     <th>product name</th>
                     <th>product price</th>
                     <th>product description</th>
@@ -50,6 +51,7 @@ if (isset($_GET['delete'])) {
                 <td><img src="uploaded_img/<?php echo $row[
                     'image'
                 ]; ?>" height="100" alt=""></td>
+                <td><?php echo $row['userid']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td>Rs.<?php echo $row['price']; ?>/-</td>
                 <td><?php echo $row['description']; ?></td>
