@@ -59,6 +59,55 @@ if (isset($_GET['delete'])) {
 
 <body style="background-image: url('B1.jpg');">
 
+    <div class="fab-container">
+        <div class="fab fab-icon-holder">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <ul class="fab-options">
+
+            <a href="../site-home/#home">
+                <li>
+
+                    <div class="fab-icon-holder">
+                        <i class="fas fa-home"></i>
+                    </div>
+
+                    <span class="fab-label">Home</span>
+
+                </li>
+            </a>
+
+            <a href="../site-home/#service">
+                <li>
+                    <div class="fab-icon-holder">
+                        <i class="fas fa-book" aria-hidden="true"></i>
+                    </div>
+                    <span class="fab-label">Service</span>
+                </li>
+            </a>
+
+            <a href="../site-home/#contact">
+                <li>
+                    <div class="fab-icon-holder">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <span class="fab-label">Contacts</span>
+                </li>
+            </a>
+
+            <a href="../user_page.php">
+                <li>
+                    <div class="fab-icon-holder">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <span class="fab-label">Profile</span>
+                </li>
+            </a>
+
+        </ul>
+    </div>
+
 
 
     <?php if (isset($message)) {
