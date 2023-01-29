@@ -83,7 +83,7 @@ if (isset($_GET['delete'])) {
     <div class="product-display">
         <table class="product-display-table">
             <thead>
-                <tr style="background-color: black; color:gray">
+                <tr style="background-color: green; color:white">
                     <th>Item ID</th>
                     <th>product image</th>
                     <th>User ID</th>
