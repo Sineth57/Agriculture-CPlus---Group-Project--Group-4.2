@@ -15,7 +15,7 @@
     <!--start fab-floating action button (messenger icon)-->
     <div class="fab-container">
         <div class="fab fab-icon-holder">
-            <a href="#contact"><img id="imgimgimg" src="./img/111.png" alt="img"></a>
+            <a href="www.messenger.com"><img id="imgimgimg" src="./img/messenger.png" alt="img"></a>
         </div>
     </div>
     <!--end fab-->

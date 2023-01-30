@@ -28,7 +28,7 @@ if (!isset($admin_id)) {
 
 </head>
 
-<body style="background-image: url('tea-plantations-fields-working-women-wallpaper.jpg');">
+<body style="background-image: url('B1.jpg');">
 
     <h1 class="title"> <span>admin</span> profile page </h1>
 

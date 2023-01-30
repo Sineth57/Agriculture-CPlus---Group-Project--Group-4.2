@@ -29,7 +29,7 @@ if (!isset($user_id)) {
 
 </head>
 
-<body style="background-image: url('tea-plantations-fields-working-women-wallpaper.jpg'); width:100%">
+<body style="background-image: url('B1.jpg'); width:100%">
 
 
 
@@ -43,7 +43,7 @@ if (!isset($user_id)) {
 
         <ul class="fab-options">
 
-            <a href="/site-home/#home">
+            <a href="">
                 <li>
 
                     <div class="fab-icon-holder">

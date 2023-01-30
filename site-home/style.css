@@ -498,6 +498,7 @@ p{
 	position: relative;
 	padding: 0 0 10px;
 	margin-bottom: 10px;
+	font-size: 20px;
 }
 
 #msg h2:after{
@@ -517,7 +518,7 @@ p{
 	outline: none;
 	background-color: rgba(230, 230, 230, 0.6);
 	padding: 0.5rem 1rem;
-	font-size: 1.1rem;
+	font-size: 1.6rem;
 	margin-bottom: 22px;
 	transition: .3s;
 }
@@ -535,7 +536,7 @@ p{
 	padding: 0.5rem 1rem;
 	background-color: #2ecc71;
 	color: #fff;
-	font-size: 1.1rem;
+	font-size: 1.6rem;
 	border: none;
 	outline: none;
 	cursor: pointer;

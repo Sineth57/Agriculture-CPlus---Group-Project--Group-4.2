@@ -5,26 +5,28 @@
 }
 
 body{
-	background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.4)), url(B1.jpg);
+/*	background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.4)), url(B1.jpg);*/
+	background-image: url('B1.png');
       background-size:cover;
       background-repeat: no-repeat;
       background-position: center center;
       background-attachment: fixed;
+	  margin-left: 20px;
     
 }
 h1 {
-    color: rgb(255, 242, 0);
+    color: rgb(0, 0, 0);
     font-size: 80px;
 	margin-left: 10px;
 }
 h6 {
-    color: rgb(255, 242, 0);
+    color: rgb(0, 0, 0);
     font-size: 80px;
 	margin-left: 10px;
 }
 .box {
 	padding-top: 0.6%;
-	padding-left: 85%;
+	padding-left: 80%;
 }
 
 
@@ -34,7 +36,7 @@ h6 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
+	color: rgb(0, 0, 0);
 	background-color: #8CC43B;
 	border-radius: 28px;
 	box-shadow: 5px 10px 30px rgba(24, 139, 119, 0.2);
@@ -79,7 +81,7 @@ p {
     font-size: 18px;
 	text-align: justify;
 	text-justify: inter-word;
-	color: azure;
+	color: rgb(0, 0, 0);
 
    
     
@@ -117,6 +119,7 @@ h2 {
     padding-left: 850px;
     float: top;
     padding-top: 2px;
+	
     
 }
 .hrtim2 {
@@ -226,7 +229,7 @@ hrtim4 {
     height: 150px;
 }
 h6 {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 30px;
 }
 h5{
