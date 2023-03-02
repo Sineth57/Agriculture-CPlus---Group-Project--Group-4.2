@@ -94,8 +94,8 @@ if (!isset($admin_id)) {
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
             <h3>User ID: <?= $fetch_profile['id'] ?></h3>
             <h3>Name: <?= $fetch_profile['name'] ?></h3>
-            <a href="admin_profile_update.php" class="btn">update profile</a>
-            <a href="logout.php" class="delete-btn">logout</a>
+            <a href="admin_profile_update.php" class="btn">Update profile</a>
+            <a href="logout.php" class="delete-btn">Logout</a>
             <div class="flex-btn">
 
 
