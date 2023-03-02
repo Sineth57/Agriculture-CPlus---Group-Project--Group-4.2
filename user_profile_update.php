@@ -168,15 +168,15 @@ if (isset($_POST['update'])) {
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
             <div class="flex">
                 <div class="inputBox">
-                    <span>username : </span>
+                    <span>Username : </span>
                     <input type="text" name="name" required class="box" placeholder="enter your name" value="<?= $fetch_profile[
                         'name'
                     ] ?>">
-                    <span>email : </span>
+                    <span>Email : </span>
                     <input type="email" name="email" required class="box" placeholder="enter your email" value="<?= $fetch_profile[
                         'email'
                     ] ?>">
-                    <span>profile pic : </span>
+                    <span>Profile pic : </span>
                     <input type="hidden" name="old_image" value="<?= $fetch_profile[
                         'image'
                     ] ?>">
@@ -186,7 +186,7 @@ if (isset($_POST['update'])) {
                     <input type="hidden" name="old_pass" value="<?= $fetch_profile[
                         'password'
                     ] ?>">
-                    <span>old password :</span>
+                    <span>Old password :</span>
                     <input type="password" class="box" name="previous_pass" placeholder="enter previous password">
                     <span>new password :</span>
                     <input type="password" class="box" name="new_pass" placeholder="enter new password">
