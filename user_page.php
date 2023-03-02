@@ -19,7 +19,7 @@ if (!isset($user_id)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>User page</title>
+    <title>User Page</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -98,8 +98,8 @@ if (!isset($user_id)) {
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
             <h3>User ID: <?= $fetch_profile['id'] ?></h3>
             <h3>Name: <?= $fetch_profile['name'] ?></h3>
-            <a href="user_profile_update.php" class="btn">update profile</a>
-            <a href="logout.php" class="delete-btn">logout</a>
+            <a href="user_profile_update.php" class="btn">Update Profile</a>
+            <a href="logout.php" class="delete-btn">Logout</a>
             <br>
             <div class="flex-btn">
                 <a href="site-home/index.php" class="option-btn">Go to Home</a>
