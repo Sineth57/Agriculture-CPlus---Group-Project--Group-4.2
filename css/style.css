@@ -3,7 +3,7 @@
 :root{
    --blue:#0097e6;
    --orange:#f39c12;
-   --red:#e74c3c;
+   --red:#59e73c;
    --white:#fff;
    --light-color:#aaa;
    --black:#222;
@@ -73,7 +73,7 @@ body{
 .title{
    padding:1.5rem 1rem;
    text-align: center;
-   background-color: var(--black);
+   background: linear-gradient(60deg, #296d33 0%, #79cf17 100%);;
    font-size: 3rem;
    text-transform: uppercase;
    color:var(--white);
@@ -106,11 +106,15 @@ h5 {
 }
 
 .btn{
+<<<<<<< HEAD
    background-color: rgb(74, 180, 74);
+=======
+   background:linear-gradient(60deg, #296d33 0%, #79cf17 100%);
+>>>>>>> 66ef7c2d740b129f0b4f1b8dc4526b5c47ad7244
 }
 
 .delete-btn{
-   background-color: var(--red);
+   background:linear-gradient(60deg, #296d33 0%, #79cf17 100%);
 }
 
 .option-btn{
@@ -145,7 +149,11 @@ h5 {
 .form-container form{
    width: 50rem;
    border-radius: .5rem;
+<<<<<<< HEAD
    background-color: rgb(240, 239, 239);
+=======
+  
+>>>>>>> 66ef7c2d740b129f0b4f1b8dc4526b5c47ad7244
    padding:2rem;
    text-align: center;
 }
@@ -188,15 +196,17 @@ h5 {
    justify-content: center;
    padding:2rem;
    min-height: 100vh;
+   box-shadow: 0px 0px 25px 0 #0000002c;
   
 }
 
 .profile-container .profile{
    width: 40rem;
    border-radius: .5rem;
-   background-color: var(--black);
+   background-color: rgb(255, 255, 255);
    padding:2rem;
    text-align: center;
+   box-shadow: 0px 0px 25px 0 #0000002c;
 }
 
 .profile-container .profile img{
@@ -210,7 +220,7 @@ h5 {
 .profile-container .profile h3{
    font-size: 2.5rem;
    padding:.5rem 0;
-   color:var(--white);
+   color:var(--black);
 }
 
 .update-profile-container{
@@ -306,3 +316,78 @@ h5 {
    }
 
 }
+
+.fab-container {
+   position: fixed;
+   bottom: 50px;
+   top: 40px;
+   left: 50px;
+   z-index: 999;
+   cursor: pointer;
+ }
+ 
+ .fab-icon-holder {
+   width: 50px;
+   height: 50px;
+   border-radius: 100%;
+   background:linear-gradient(60deg, #296d33 0%, #79cf17 100%);
+ 
+   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+ } 
+ 
+ .fab-icon-holder:hover{
+   opacity: 0.8;
+ }
+ 
+ .fab-icon-holder i {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   font-size: 25px;
+   color: #ffffff;
+ }
+ 
+ .fab {
+   width: 60px;
+   height: 60px;
+   background:linear-gradient(60deg, #010328 0%, #ecf811 100%);
+ }
+ 
+ .fab-options {
+   list-style-type:armenian;
+   margin: 0;
+ 
+   position: absolute;
+   top: 70px;
+   left:   0;
+ 
+   opacity: 0;
+ 
+   transition: all 0.3s ease;
+   transform: scale(0);
+   transform-origin: 20% top;
+ }
+ 
+ .fab:hover + .fab-options, .fab-options:hover {
+   opacity: 1;
+   transform: scale(1);
+ }
+ 
+ .fab-options li {
+   display: flex;
+   padding: 5px;
+ }
+ 
+ .fab-label {
+   padding: 2px 5px;
+   align-self: center;
+   user-select: none;
+   white-space: nowrap;
+   border-radius: 3px;
+   font-size: 16px;
+   background: #666666;
+   color: #ffffff;
+   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+   margin-left: 10px;
+ }
