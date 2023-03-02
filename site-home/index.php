@@ -92,10 +92,10 @@
                     <p>List and manage your products directly on the platform and find potential buyers</p>
                 </div>
                 <div class="service-item">
-                    <div class="icon"><a href="listeditem.html"><img src="buy.png"></a>
+                    <div class="icon"><a href="../php admin crud/database1.php"><img src="buy.png"></a>
                         <!--form to buy items-->
                     </div>
-                    <h2><a href="listeditem.html">See Listed items</h2></a>
+                    <h2><a href="../php admin crud/database1.php">See Listed items</h2></a>
                     <p>Browse through the platform to view all listed items and find products to buy</p>
                 </div>
             </div>
