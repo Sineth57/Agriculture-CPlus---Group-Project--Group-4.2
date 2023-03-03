@@ -28,6 +28,13 @@ if (isset($_GET['delete'])) {
 
 <body style="background-image: url('B1.jpg');">
 
+
+    <div>
+        <a href="../site-home/edit.html" type="button" class="btn2">Edit your product</a>
+
+    </div>
+
+
     <div class="fab-container">
         <div class="fab fab-icon-holder">
             <i class="fa fa-bars"></i>
@@ -76,6 +83,7 @@ if (isset($_GET['delete'])) {
 
         </ul>
     </div>
+
 
 
 
