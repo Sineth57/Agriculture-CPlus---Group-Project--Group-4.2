@@ -23,7 +23,7 @@ if (isset($_GET['delete'])) {
     <link rel="stylesheet" href="css/style.css">
 
 
-    <title>Database</title>
+    <title>CPlus Products</title>
 </head>
 
 <body style="background-image: url('B1.jpg');">
