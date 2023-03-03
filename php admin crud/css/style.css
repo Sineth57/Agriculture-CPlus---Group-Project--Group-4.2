@@ -245,3 +245,22 @@ body {
    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
    margin-left: 10px;
  }
+
+ .btn2 {
+	background:linear-gradient(60deg, #296d33 0%, #79cf17 100%);
+	color: white;
+	border-radius: 8px;
+	padding: 10px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 17px;
+	margin-top: 30px;
+	margin-left: 43%;
+	border-radius:10px;
+	transition-property: background-color, color;
+  }
+  .btn2:hover {
+	color: black;
+	background-color: yellowgreen;
+  } 	
