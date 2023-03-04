@@ -125,7 +125,7 @@ if (isset($_GET['delete'])) {
             <form action="<?php $_SERVER[
                 'PHP_SELF'
             ]; ?>" method="post" enctype="multipart/form-data">
-                <h3>add a new product</h3>
+                <h3>add your new product</h3>
 
                 <input type="number" placeholder="Enter User ID" name="product_userid" class="box">
                 <input type="text" placeholder="Enter product name" name="product_name" class="box">

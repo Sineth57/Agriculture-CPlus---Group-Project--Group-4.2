@@ -98,13 +98,16 @@ if (!isset($user_id)) {
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
             <h3>User ID: <?= $fetch_profile['id'] ?></h3>
             <h3>Name: <?= $fetch_profile['name'] ?></h3>
-            <a href="user_profile_update.php" class="btn">Update Profile</a>
-            <a href="logout.php" class="delete-btn">Logout</a>
-            <br>
+
             <div class="flex-btn">
                 <a href="site-home/index.php" class="option-btn">Go to Home</a>
 
             </div>
+            <br>
+            <a href="user_profile_update.php" class="btn">Update Profile</a>
+            <a href="logout.php" class="delete-btn">Logout</a>
+            <br>
+
 
         </div>
 

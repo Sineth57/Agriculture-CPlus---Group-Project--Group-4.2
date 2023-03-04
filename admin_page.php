@@ -39,7 +39,7 @@ if (!isset($admin_id)) {
 
         <ul class="fab-options">
 
-            <a href="/site-home/#home">
+            <a href="/site-home/index.php/#home">
                 <li>
 
                     <div class="fab-icon-holder">
@@ -98,6 +98,7 @@ if (!isset($admin_id)) {
             <a href="logout.php" class="delete-btn">Logout</a>
             <div class="flex-btn">
 
+                <a href="userdb.php" class="btn">Registered User Details</a>
 
                 <a href="php admin crud/database.php" class="btn">User Listning Requests</a>
 
