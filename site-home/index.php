@@ -58,7 +58,7 @@
                 <h1>Welcome to Agri-Zone</h1>
                 <br>
                 <h2>JOIN WITH US TO GET YOUR SERVICE</h2>
-                <a href="#service" type="button" class="btn">GET START</a>
+                <a href="#service" type="button" class="btn">GET STARTED</a>
                 <!--button to quick access to service tab-->
             </div>
         </div>

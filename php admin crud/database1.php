@@ -94,7 +94,7 @@ if (isset($_GET['delete'])) {
                 <tr style="background-color: green; color:white">
                     <th>Item ID</th>
                     <th>product image</th>
-                    <th>User ID</th>
+
                     <th>product name</th>
                     <th>product price</th>
                     <th>product description</th>
@@ -108,7 +108,7 @@ if (isset($_GET['delete'])) {
                 <td><img src="uploaded_img/<?php echo $row[
                     'image'
                 ]; ?>" height="100" alt=""></td>
-                <td><?php echo $row['userid']; ?></td>
+
                 <td><?php echo $row['name']; ?></td>
                 <td>Rs.<?php echo $row['price']; ?>/-</td>
                 <td><?php echo $row['description']; ?></td>
