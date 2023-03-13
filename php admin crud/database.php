@@ -78,14 +78,13 @@ if (isset($_GET['delete'])) {
     </div>
 
 
-
     <?php $select = mysqli_query($conn, 'SELECT * FROM products'); ?>
     <div class="product-display">
         <table class="product-display-table">
             <thead>
                 <tr style="background-color: green; color:white">
                     <th>Item ID</th>
-                    <th>product image</th>
+                    <th>Product image</th>
                     <th>User ID</th>
                     <th>product name</th>
                     <th>product price</th>
@@ -118,6 +117,10 @@ if (isset($_GET['delete'])) {
             <?php } ?>
         </table>
     </div>
+    <script>
+    alert('A new product has been added!');
+    </script>
+
 </body>
 
 </html>
