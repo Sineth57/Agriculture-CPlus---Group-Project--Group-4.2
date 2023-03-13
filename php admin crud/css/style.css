@@ -98,13 +98,13 @@ body {
 
 .product-display{
    margin:2rem 0;
-   margin-top: 20px;
+   margin-top: 10px;
 }
 
 .product-display .product-display-table{
    width: 100%;
    text-align: center;
-   margin-top: 10%;
+   margin-top: 1%;
 }
 
 .product-display .product-display-table thead{
@@ -264,3 +264,31 @@ body {
 	color: black;
 	background-color: yellowgreen;
   } 	
+
+  .searchbar {
+   width: 670px;
+   height: 50px;
+   margin-left: 300px;
+   background-color: #f1f1f1;
+   border: 2px solid rgb(69, 177, 19);
+   padding-left: 20px;
+   border-radius: 20px;
+   box-shadow: 0px 0px 38px 0 #0000002c;
+   
+  }
+
+  .searchbutton {
+   width: 100px;
+   height: 50px;
+   background-color: #e0ff8c;
+   border: 2px solid rgb(69, 177, 19);
+   border-radius: 20px;
+   margin-left: 10px;
+   box-shadow: 0px 0px 38px 0 #0000002c;
+  }
+
+  .seemore {
+   font-weight: 900;
+   margin-left: 40px;
+   font-size: 30px;
+  }

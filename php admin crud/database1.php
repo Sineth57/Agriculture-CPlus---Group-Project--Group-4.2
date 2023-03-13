@@ -7,6 +7,21 @@ if (isset($_GET['delete'])) {
     header('location:admin_page.php');
 }
 ?>
+<?php
+$servername = 'localhost';
+$username = 'root';
+$password = '2000SGW@';
+$dbname = 'user_form';
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die('Connection failed: ' . mysqli_connect_error());
+} // Retrieve search query from search bar
+if (isset($_POST['submit'])) {
+    $search = $_POST['search']; // Search for data that matches the search query by id or name
+    $sql = "SELECT * FROM products WHERE id LIKE '%$search%' OR name LIKE '%$search%'";
+    $result = mysqli_query($conn, $sql);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -84,11 +99,60 @@ if (isset($_GET['delete'])) {
         </ul>
     </div>
 
+    <br><br><br>
+    <div class="product-display">
 
+        <form action="" method="POST">
+            <input class="searchbar" type="text" name="search" placeholder="Search products...">
+            <input class="searchbutton" type="submit" name="submit" value="Search">
+        </form>
+
+        <br><br>
+        <table class="product-display-table">
+            <thead>
+                <tr style="background-color: green; color:white">
+                    <th>Item ID</th>
+                    <th>product image</th>
+
+                    <th>product name</th>
+                    <th>product price</th>
+                    <th>product description</th>
+                    <th>phone Number</th>
+
+
+                </tr>
+            </thead>
+
+            <?php if (isset($_POST['submit'])) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<tr>';
+                        echo '<td>' . $row['id'] . '</td>';
+                        echo "<td><img src='uploaded_img/" .
+                            $row['image'] .
+                            "' height='100' alt=''></td>";
+                        echo '<td>' . $row['name'] . '</td>';
+                        echo '<td>' . $row['price'] . '</td>';
+                        echo '<td>' . $row['description'] . '</td>';
+                        echo '<td>' . $row['pnumber'] . '</td>';
+                        echo '</tr>';
+                    }
+                } else {
+                    echo 'No results found.';
+                }
+            } ?>
+        </table>
+    </div>
+
+
+    <br><br>
 
 
     <?php $select = mysqli_query($conn, 'SELECT * FROM products'); ?>
     <div class="product-display">
+        <h2 class="seemore">See newly listed products</h2>
+
+        <br>
         <table class="product-display-table">
             <thead>
                 <tr style="background-color: green; color:white">
