@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
                     <th>product name</th>
                     <th>product price</th>
                     <th>product description</th>
-                    <th>phone number</th>
+                    <th>phone Number</th>
 
 
                 </tr>
