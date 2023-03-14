@@ -181,7 +181,7 @@
                 <br><br><br>
             </div>
         </div>
-    </section> -->
+    </section>
     <!--end blog-->
 
     <!--start about-->
