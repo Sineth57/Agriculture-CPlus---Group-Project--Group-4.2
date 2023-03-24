@@ -15,6 +15,7 @@
 </head>
 <body style="background-image: url('B1.jpg');">
 
+   <!--start of fab-->
    <div class="fab-container">
       <div class="fab fab-icon-holder">
           <i class="fa fa-bars"></i>
@@ -62,47 +63,36 @@
           </a>
 
       </ul>
-  </div>
-   
-<div class="container">
+    </div>
+    <!--end of fab-->
+
+  <!--start of form-->
+  <div class="container">
 
    <div class="admin-product-form-container">
-      <form
-      action="https://formspree.io/f/mdovowva"
-      method="POST"
-    >
+      <form action="https://formspree.io/f/mdovowva"method="POST">
          <h3>Edit a product</h3>
          <input type="text" placeholder="Enter user ID product ID" name="product_id" class="box">
          <input type="text" placeholder="Enter product name" name="product_name" class="box">
-        
-          
+         
          <div class="input-group mb-3">
            <span class="input-group-text"></span>
            <textarea class="box" placeholder="Enter product description" name="product_description" required></textarea>
          </div>
 
-               
-         
          <input type="text" placeholder="Enter product price" name="product_price" class="box">
          <input type="number" placeholder="Enter phone number" name="product_pnumber" class="box">
          <p class="box">On Hold 
-        <input type="radio" id="yes" name="onhold" value="Yes">
-        <label for="yes">Yes </label>
-        <input type="radio" id="no" name="onhold" value="No">
-        <label for="no">No</label><br></p>
-         <input type="submit" class="btn" name="Submit" href="database.php" value="add product">  <div class="inputfield">
-            
-         </div>
-           
-        
-      </form>
+          <input type="radio" id="yes" name="onhold" value="Yes">
+          <label for="yes">Yes </label>
+          <input type="radio" id="no" name="onhold" value="No">
+          <label for="no">No</label><br></p>
+          <input type="submit" class="btn" name="Submit" href="database.php" value="add product"><div class="inputfield"></div>
+       </form>
+    </div>
 
-   </div>
-
-   
-
-</div>
-
+  </div>
+  <!--end of form-->
 
 </body>
 </html>
