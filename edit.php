@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
                 <button class="btn btn-success" type="submit" name="submit"> Submit </button><br>
-                <a class="btn btn-info" type="submit" name="cancel" href="index.php"> Cancel </a><br>
+                <a class="btn btn-info" type="submit" name="cancel" href="userdb.php"> Cancel </a><br>
 
             </div>
         </form>
