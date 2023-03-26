@@ -40,6 +40,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th></th>
                     <th>IMAGE</th>
                     <th>NAME</th>
                     <th>EMAIL</th>
@@ -61,7 +62,9 @@
       <tr>
         <th>$row[id]</th>
         
-        <td>$row[image]</td>
+        <td><td><img src='uploaded_img/" .
+                        $row['image'] .
+                        "' height='100' alt=''></td></td>
                 <td>$row[name]</td>
                 <td>$row[email]</td>
                 <td>$row[user_type]</td>
