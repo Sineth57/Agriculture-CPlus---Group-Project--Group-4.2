@@ -11,7 +11,7 @@ body{
 	
 }
 
-
+/*start fab*/
 .fab-container {
 	position: fixed;
 	bottom: 50px;
@@ -86,7 +86,9 @@ body{
 	box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 	margin-left: 10px;
   }
+  /*end fab*/
 
+  /*start header*/
 .wrapper .header{
 	width: 100%;
 	height: 80px;
@@ -118,8 +120,10 @@ body{
   .btn2:hover {
 	color: black;
 	background-color: yellowgreen;
-  } 	
+  }
+  /*end header*/
 
+  /*start list card*/
 .cards_wrap{
 	padding: 10px;
 	width: 100%;
@@ -179,8 +183,9 @@ body{
 	color: #000000;
 	font-weight: bold;
 }
+/*end list card*/
 
-
+/*start media query*/
 @media screen and (max-width: 1024px){
 	.cards_wrap .card_item{
 		width: 33%;
@@ -205,3 +210,4 @@ body{
 		font-size: 14px;
 	}
 }
+/*end media query*/
