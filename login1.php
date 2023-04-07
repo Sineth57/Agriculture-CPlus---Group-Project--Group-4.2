@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
             $message[] = 'no user found!';
         }
     } else {
-        $message[] = 'incorrect email or password!';
+        $show_error = true;
+        $error_message = 'incorrect email or password!';
     }
 }
 ?>
@@ -87,5 +88,9 @@ if (isset($_POST['submit'])) {
     </section>
 
 </body>
+
+<script>
+    alert("<?php echo $error_message; ?>");
+</script>
 
 </html>
