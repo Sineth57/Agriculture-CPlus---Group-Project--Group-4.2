@@ -2,8 +2,9 @@
 
 $db_name = "mysql:host=localhost;dbname=user_form";
 $username = "root";
-$password = "2000SGW@";
+$password = "";
 
 $conn = new PDO($db_name, $username, $password);
 
+//$conn = mysqli_connect('localhost', 'root', '', 'user_form');
 ?>
