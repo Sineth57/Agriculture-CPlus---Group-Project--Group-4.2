@@ -12,7 +12,7 @@ if (isset($_GET['delete'])) {
 <?php
 $servername = 'localhost';
 $username = 'root';
-$password = '2000SGW@';
+$password = '';
 $dbname = 'user_form';
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {

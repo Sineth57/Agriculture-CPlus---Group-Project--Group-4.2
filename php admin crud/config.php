@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'root', '2000SGW@', 'user_form');
+$conn = mysqli_connect('localhost', 'root', '', 'user_form');
 
 ?>
