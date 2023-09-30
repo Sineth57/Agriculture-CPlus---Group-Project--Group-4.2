@@ -100,7 +100,7 @@ if (!isset($admin_id)) {
 
                 <a href="userdb.php" class="btn">Registered User Details</a>
 
-                <a href="php admin crud/database.php" class="btn">User Listning Requests</a>
+                <a href="php admin crud/database.php" class="btn">Edit/Delete Listnings</a>
 
             </div>
             <br>

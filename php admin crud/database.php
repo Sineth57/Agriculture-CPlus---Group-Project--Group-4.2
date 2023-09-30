@@ -184,9 +184,9 @@ if (isset($_POST['submit'])) {
             <?php } ?>
         </table>
     </div>
-    <script>
+    <!-- <script>
     alert('A new product has been added!');
-    </script>
+    </script> -->
 
 </body>
 

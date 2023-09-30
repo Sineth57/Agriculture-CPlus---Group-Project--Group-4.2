@@ -30,7 +30,7 @@
     </nav> -->
     <h2 style="padding-left:585px; color:white; background-color: green; padding-top:15px; padding-bottom:15px">
         <strong>User
-            Details</strong>
+            Details - Admin Page</strong>
     </h2>
 
 
@@ -45,8 +45,8 @@
                     <th>NAME</th>
                     <th>EMAIL</th>
                     <th>USER TYPE</th>
-
                     <th>ACTIONS</th>
+                    <th>USER LISTNINGS  </th>
                 </tr>
             </thead>
             <tbody>
@@ -73,6 +73,13 @@
                     <a class='btn btn-success' href='edit.php?id=$row[id]'>Edit</a>
                     <a class='btn btn-danger' href='delete.php?id=$row[id]'>Delete</a>
                 </td>
+
+                <td>
+                <a class='btn btn-success' href='userdbproducts1.php?user_id=" . $row['id'] . "'>See Listings</a>
+
+            </td>
+
+
                 </tr>
                 ";
                 }
@@ -88,3 +95,8 @@
 </body>
 
 </html>
+
+<!-- 
+//     <td>
+            //     <a class='btn btn-primary' href='userdbproducts.php?id=$row[id]'>See Listings</a>
+            // </td> -->
