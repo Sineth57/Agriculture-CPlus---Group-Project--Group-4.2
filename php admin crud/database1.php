@@ -117,7 +117,8 @@ if (isset($_POST['submit'])) {
                     <th>product Name</th>
                     <th>product price</th>
                     <th>product description</th>
-                    <th>phone Number</th>
+                    <!-- <th>phone Number</th> -->
+                    <th>Contact</th>
 
 
                 </tr>
@@ -134,7 +135,14 @@ if (isset($_POST['submit'])) {
                         echo '<td>' . $row['name'] . '</td>';
                         echo '<td>' . $row['price'] . '</td>';
                         echo '<td>' . $row['description'] . '</td>';
-                        echo '<td>' . $row['pnumber'] . '</td>';
+                        // echo '<td>' . $row['pnumber'] . '</td>';
+
+                        echo '<td>';
+                        echo '<a href="userDetails.php?id=' . $row['id'] . '" class="btn">';
+                        echo '<i class="fas fa-edit"></i> Contact';
+                        echo '</a>';
+                        echo '</td>';
+                       
                         echo '</tr>';
                     }
                 } else {
@@ -158,11 +166,11 @@ if (isset($_POST['submit'])) {
                 <tr style="background-color: green; color:white">
                     <th>Item ID</th>
                     <th>product image</th>
-
                     <th>product name</th>
                     <th>product price</th>
                     <th>product description</th>
-                    <th>phone number</th>
+                    <!-- <th>phone number</th> -->
+                    <th>contact</th>
 
                 </tr>
             </thead>
@@ -176,7 +184,19 @@ if (isset($_POST['submit'])) {
                 <td><?php echo $row['name']; ?></td>
                 <td>Rs.<?php echo $row['price']; ?>/-</td>
                 <td><?php echo $row['description']; ?></td>
-                <td><?php echo $row['pnumber']; ?></td>
+                <!-- <td><?php echo $row['pnumber']; ?></td> -->
+                <!-- <td>
+                    <a href="userDetails1.php?edit=<?php echo $row[
+                        'id'
+                    ]; ?>" class="btn"> <i class="fas fa-edit"></i> Contact</a>
+                  
+                </td> -->
+
+                <td>
+            <a href="userDetails.php?id=<?php echo $row['id']; ?>" class="btn">
+                <i class="fas fa-edit"></i> Contact
+            </a>
+        </td>
 
 
             </tr>
