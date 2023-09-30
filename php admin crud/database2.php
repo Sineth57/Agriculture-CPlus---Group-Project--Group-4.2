@@ -192,6 +192,11 @@ if (!$result) {
                         'id'
                     ]; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
                 </td>
+<<<<<<< Updated upstream
+=======
+
+                
+>>>>>>> Stashed changes
             </tr>
             <?php } ?>
         </table>
