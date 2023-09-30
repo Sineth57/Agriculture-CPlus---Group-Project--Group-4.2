@@ -193,6 +193,11 @@ if (!$result) {
                     ]; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
                 </td>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+                
+>>>>>>> Stashed changes
 =======
 
                 
