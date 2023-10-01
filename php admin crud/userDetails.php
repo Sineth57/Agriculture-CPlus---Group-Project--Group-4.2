@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Include your database connection code here
+
 include 'config.php';
 
 // Check if the product ID is provided in the URL
