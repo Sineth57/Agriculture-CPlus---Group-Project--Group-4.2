@@ -107,6 +107,7 @@ if (!isset($user_id)) {
             <br>
             <a href="user_profile_update.php" class="btn">Update Profile</a>
             <a href="logout.php" class="delete-btn">Logout</a>
+            <a href="php admin crud/cart.php" class="option-btn">My Cart</a>
             <br>
 
 
