@@ -114,7 +114,7 @@ if (isset($_POST['update_product'])) {
             <?php
             $select = mysqli_query(
                 $conn,
-                "SELECT * FROM products WHERE id = '$id'"
+                "SELECT * FROM products WHERE pid = '$id'"
             );
             while ($row = mysqli_fetch_assoc($select)) { ?>
 

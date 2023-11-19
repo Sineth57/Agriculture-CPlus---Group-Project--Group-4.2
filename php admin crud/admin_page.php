@@ -35,7 +35,7 @@ if (isset($_POST['add_product'])) {
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
+    mysqli_query($conn, "DELETE FROM products WHERE pid = $id");
     header('location:database.php');
 }
 ?>
