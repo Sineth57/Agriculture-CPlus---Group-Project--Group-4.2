@@ -22,13 +22,17 @@ if (isset($_POST['submit'])) {
             header('location:admin_page.php');
         } elseif ($row['user_type'] == 'user') {
             $_SESSION['user_id'] = $row['id'];
+
+            // Assuming `cart_id` is the column in your users table for the cart identifier
+            $_SESSION['cart_id'] = $row['cart_id'];
+
             header('location:user_page.php');
         } else {
-            $message[] = 'no user found!';
+            $message[] = 'No user found!';
         }
     } else {
         $show_error = true;
-        $error_message = 'incorrect email or password!';
+        $error_message = 'Incorrect email or password!';
     }
 }
 ?>
@@ -67,7 +71,7 @@ if (isset($_POST['submit'])) {
         <div class="login-container">
             <p class="title">Welcome back</p>
             <div class="separator"></div>
-            <p class="welcome-message">Please, provide login credential to proceed and have access to all our services
+            <p class="welcome-message">Please, provide login credentials to proceed and have access to all our services
             </p>
 
             <form action="" method="post" enctype="multipart/form-data" class="login-form">
@@ -82,7 +86,7 @@ if (isset($_POST['submit'])) {
 
                 <button type="submit" value="login now" class="submit" name="submit">Login</button>
             </form>
-            <p class="register">Don't have a account?</p>
+            <p class="register">Don't have an account?</p>
             <a href="register1.php">Create account</a>
         </div>
     </section>

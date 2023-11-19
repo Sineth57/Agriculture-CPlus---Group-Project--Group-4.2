@@ -3,7 +3,7 @@
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
+    mysqli_query($conn, "DELETE FROM products WHERE pid = $id");
     header('location:admin_page.php');
 }
 ?>
@@ -20,7 +20,7 @@ if (!$conn) {
 } // Retrieve search query from search bar
 if (isset($_POST['submit'])) {
     $search = $_POST['search']; // Search for data that matches the search query by id or name
-    $sql = "SELECT * FROM products WHERE id LIKE '%$search%' OR name LIKE '%$search%'";
+    $sql = "SELECT * FROM products WHERE pid LIKE '%$search%' OR name LIKE '%$search%'";
     $result = mysqli_query($conn, $sql);
 }
 ?>
@@ -124,7 +124,7 @@ if (isset($_POST['submit'])) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '<tr>';
-                        echo '<td>' . $row['id'] . '</td>';
+                        echo '<td>' . $row['pid'] . '</td>';
                         echo "<td><img src='uploaded_img/" .
                             $row['image'] .
                             "' height='100' alt=''></td>";
@@ -162,7 +162,7 @@ if (isset($_POST['submit'])) {
             </thead>
             <?php while ($row = mysqli_fetch_assoc($select)) { ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['pid']; ?></td>
                 <td><img src="uploaded_img/<?php echo $row[
                     'image'
                 ]; ?>" height="100" alt=""></td>
@@ -174,10 +174,10 @@ if (isset($_POST['submit'])) {
 
                 <td>
                     <a href="admin_update.php?edit=<?php echo $row[
-                        'id'
+                        'pid'
                     ]; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
                     <a href="admin_page.php?delete=<?php echo $row[
-                        'id'
+                        'pid'
                     ]; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
                 </td>
             </tr>
