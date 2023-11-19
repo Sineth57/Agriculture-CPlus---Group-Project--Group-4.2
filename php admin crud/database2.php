@@ -4,8 +4,8 @@ session_start();
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
-    header('location:admin_page.php');
+    mysqli_query($conn, "DELETE FROM products WHERE pid = $id");
+    header('location:database2.php');
 }
 ?>
 
@@ -22,7 +22,7 @@ if (!$conn) {
 if (isset($_POST['submit'])) {
     $search = $_POST['search']; 
     // Search for data that matches the search query by id or name
-    $sql = "SELECT * FROM products WHERE id LIKE '%$search%' OR name LIKE '%$search%'";
+    $sql = "SELECT * FROM products WHERE pid LIKE '%$search%' OR name LIKE '%$search%'";
     $result = mysqli_query($conn, $sql);
 }
 
@@ -136,7 +136,7 @@ if (!$result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '<tr>';
-                        echo '<td>' . $row['id'] . '</td>';
+                        echo '<td>' . $row['pid'] . '</td>';
                         echo "<td><img src='uploaded_img/" .
                             $row['image'] .
                             "' height='100' alt=''></td>";
@@ -174,7 +174,7 @@ if (!$result) {
             </thead>
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['pid']; ?></td>
                 <td><img src="uploaded_img/<?php echo $row[
                     'image'
                 ]; ?>" height="100" alt=""></td>
@@ -186,22 +186,14 @@ if (!$result) {
 
                 <td>
                     <a href="admin_update.php?edit=<?php echo $row[
-                        'id'
+                        'pid'
                     ]; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
-                    <a href="admin_page.php?delete=<?php echo $row[
-                        'id'
+                    <a href="database2.php?delete=<?php echo $row[
+                        'pid'
                     ]; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
                 </td>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 
                 
->>>>>>> Stashed changes
-=======
-
-                
->>>>>>> Stashed changes
             </tr>
             <?php } ?>
         </table>

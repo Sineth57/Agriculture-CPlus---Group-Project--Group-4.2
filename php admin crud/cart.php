@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Include your database connection code here
+// database connection code 
 include 'config.php';
 
 // Check if the 'add_to_cart' form is submitted
