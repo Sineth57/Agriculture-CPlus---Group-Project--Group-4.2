@@ -137,6 +137,12 @@ if (isset($_GET['pid'])) {
             <div class="product-image">
                 <img src="uploaded_img/<?php echo $row['image']; ?>" alt="Product Image">
             </div>
+            <div class="product-image">
+                <img src="uploaded_img/<?php echo $row['image2']; ?>" alt="Product Image">
+            </div>
+            <div class="product-image">
+                <img src="uploaded_img/<?php echo $row['image3']; ?>" alt="Product Image">
+            </div>
             
         </div>
         <div class="right">
@@ -151,6 +157,9 @@ if (isset($_GET['pid'])) {
             </div>
             <div class="product-price">
                 <p>Price: Rs. <?php echo $row['price']; ?>/-</p>
+            </div>
+            <div class="product-price">
+                <p>Name and Address of the seller: <?php echo $row['nameAddress']; ?></p>
             </div>
             <div class="phone-number">
                 <p>Phone: <?php echo $row['pnumber']; ?></p>
