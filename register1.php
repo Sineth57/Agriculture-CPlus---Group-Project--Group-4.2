@@ -21,21 +21,22 @@ if (isset($_POST['submit'])) {
     $select->execute([$email]);
 
     if ($select->rowCount() > 0) {
-        $message[] = 'user already exist!';
+        $message[] = 'User already exists!';
     } else {
         if ($pass != $cpass) {
-            $message[] = 'confirm password not matched!';
+            $message[] = 'Confirm password not matched!';
         } elseif ($image_size > 2000000) {
-            $message[] = 'image size is too large!';
+            $message[] = 'Image size is too large!';
         } else {
-            $insert = $conn->prepare(
-                'INSERT INTO `users`(name, email, password, image) VALUES(?,?,?,?)'
-            );
+            $insert = $conn->prepare('INSERT INTO `users`(name, email, password, image) VALUES(?,?,?,?)');
             $insert->execute([$name, $email, $cpass, $image]);
             if ($insert) {
+                // Move uploaded image to folder
                 move_uploaded_file($image_tmp_name, $image_folder);
-                $message[] = 'registered succesfully!';
+                $message[] = 'Registered successfully!';
                 header('location:login1.php');
+            } else {
+                $message[] = 'Could not register the user.';
             }
         }
     }
@@ -68,7 +69,6 @@ if (isset($_POST['submit'])) {
         }
     } ?>
 
-
     <section class="side">
         <img src="./img/img.svg" alt="">
     </section>
@@ -77,8 +77,8 @@ if (isset($_POST['submit'])) {
         <div class="login-container">
             <p class="title">Register Now</p>
             <div class="separator"></div>
-            <p class="welcome-message">Please, fill in the infomation asked below to proceed and have access to all our
-                services</p>
+            <p class="welcome-message">Please, fill in the information asked below to proceed and have access to all
+                our services</p>
 
             <form action="" method="post" enctype="multipart/form-data" class="login-form">
                 <div class="form-control">
@@ -97,19 +97,13 @@ if (isset($_POST['submit'])) {
                     <input type="password" required placeholder="Confirm your password" class="box" name="cpass">
                     <i class="fas fa-lock"></i>
                 </div>
-                <!--  <div class="form-control">
-                    <input type="number" placeholder="Enter your Contact number">
-                    <i class="fas fa-user"></i>
-                </div> -->
-
                 <div class="form-control">
                     <input type="file" name="image" required class="box" accept="image/jpg, image/png, image/jpeg">
                     <i class="fas fa-user"></i>
                 </div>
-
                 <button type="submit" value="" class="submit" name="submit">Submit</button>
             </form>
-            <p class="register">Already have a account?</p>
+            <p class="register">Already have an account?</p>
             <a href="login1.php">Login to your account</a>
         </div>
     </section>

@@ -139,7 +139,7 @@ if (isset($_POST['update_product'])) {
                 ]; ?>" placeholder="enter the phone number">
                 <input type="submit" value="update product" name="update_product" class="btn">
 
-                <a href="admin_page.php" class="btn">go back!</a>
+                <a href="database2.php" class="btn">go back!</a>
             </form>
 
 
