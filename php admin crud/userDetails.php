@@ -45,43 +45,109 @@ if (isset($_GET['pid'])) {
 <body style="background-image: url('B1.jpg');">
 
     <style>
-.flex-box {
-    display: flex;
-    max-width: 1400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f1eeee;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-height: 400px;
-    border: 2px solid silver;
-    border-radius: 10px;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-.left {
-    width: 40%;
-    padding-right: 20px;
-}
+        .header {
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
 
-.product-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex-grow: 1;
-}
+        .flex-box {
+            display: flex;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f1eeee;
+            box-shadow: 0 0 10px rgba(102, 102, 102, 0.5);
+            min-height: 400px;
+            border: 2px solid silver;
+            border-radius: 10px;
+        }
+
+        .left {
+            width: 40%;
+            padding-right: 20px;
+        }
+
+        .big-img {
+            width: 450px;
+            border: 0.5px solid black;
+        }
+
+        .big-img img {
+            width: inherit;
+        }
+
+        .images {
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+            margin-left: 70px;
+            margin-top: 15px;
+        }
+
+        .small-img {
+            width: 80px;
+            overflow: hidden;
+            border: 0.5px solid black;
+        }
+
+        .small-img img {
+            width: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .small-img:hover img {
+            transform: scale(1.2);
+        }
+
+        .right {
+            width: 60%;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-id, .product-name, .product-description, .phone-number, .product-price, .product-address {
+            padding: 10px;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .product-price p1 {
+            color: rgb(46, 211, 46);
+        }
+        
 
 
-.right {
-    width: 60%;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        @media (max-width: 768px) {
+            .flex-box {
+                flex-direction: column;
+            }
 
-.product-id, .product-name, .product-description, .phone-number, .product-price {
-    padding: 10px;
-    font-size: 18px;
-    margin-bottom: 25px;
-}
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .images {
+                width: 100%;
+                margin-left: 0;
+                justify-content: center;
+            }
+
+            .big-img {
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
     </style>
 
     <div class="fab-container">
@@ -130,36 +196,52 @@ if (isset($_GET['pid'])) {
 
     <br><br><br> <br><br><br> <br><br><br> <br><br><br>
 
+    <div class="header">
+        <h1><?php echo $row['name']; ?></h1>
+    </div>
+
   
     <div class="flex-box">
         
         <div class="left">
-            <div class="product-image">
+            <div class="big-img">
                 <img src="uploaded_img/<?php echo $row['image']; ?>" alt="Product Image">
             </div>
-            <div class="product-image">
-                <img src="uploaded_img/<?php echo $row['image2']; ?>" alt="Product Image">
-            </div>
-            <div class="product-image">
-                <img src="uploaded_img/<?php echo $row['image3']; ?>" alt="Product Image">
-            </div>
-            
+            <div class="images">
+                <div class="small-img">
+                    <img src="uploaded_img/<?php echo $row['image']; ?>" alt="Product Image" onclick="showImg(this.src);">
+                </div>
+                <div class="small-img">
+                    <img src="uploaded_img/<?php echo $row['image2']; ?>" alt="Product Image" onclick="showImg(this.src);">
+                </div>
+                <div class="small-img">
+                    <img src="uploaded_img/<?php echo $row['image3']; ?>" alt="Product Image" onclick="showImg(this.src);">
+                </div>
+            </div> 
         </div>
+
+        <script>
+            let bigImg = document.querySelector('.big-img img');
+            function showImg(pic){
+                bigImg.src = pic;
+            }
+        </script>
+
         <div class="right">
+            <!-- <div class="product-name">
+                <p>Product Name: <?php echo $row['name']; ?></p>
+            </div> -->
             <div class="product-id">
                 <p>Product ID: <?php echo $row['pid']; ?></p>
-            </div>
-            <div class="product-name">
-                <p>Product Name: <?php echo $row['name']; ?></p>
             </div>
             <div class="product-description">
                 <p>Description: <?php echo $row['description']; ?></p>
             </div>
             <div class="product-price">
-                <p>Price: Rs. <?php echo $row['price']; ?>/-</p>
+                <p>Price: <p1>Rs. <?php echo $row['price']; ?>/-</p1> </p>
             </div>
-            <div class="product-price">
-                <p>Name and Address of the seller: <?php echo $row['nameAddress']; ?></p>
+            <div class="product-address">
+                <p>Name and Address: <?php echo $row['nameAddress']; ?></p>
             </div>
             <div class="phone-number">
                 <p>Phone: <?php echo $row['pnumber']; ?></p>
