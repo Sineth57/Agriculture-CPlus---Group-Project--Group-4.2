@@ -45,109 +45,120 @@ if (isset($_GET['pid'])) {
 <body style="background-image: url('B1.jpg');">
 
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
 
-        .header {
-            color: #000000;
-            text-align: center;
-            padding: 10px;
-            font-size: 24px;
-            letter-spacing: 1px;
-        }
+.header {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    font-size: 36px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .flex-box {
-            display: flex;
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #f1eeee;
-            box-shadow: 0 0 10px rgba(102, 102, 102, 0.5);
-            min-height: 400px;
-            border: 2px solid silver;
+.flex-box {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.left {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.big-img{
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.big-img img {
+            width: 100%;
             border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        .left {
-            width: 40%;
-            padding-right: 20px;
-        }
+.images {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 15px;
+}
 
-        .big-img {
-            width: 450px;
-            border: 0.5px solid black;
-        }
+.small-img {
+    width: 30%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .big-img img {
-            width: inherit;
-        }
+.small-img img {
+    width: 100%;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
-        .images {
-            display: flex;
-            justify-content: space-between;
-            width: 60%;
-            margin-left: 70px;
-            margin-top: 15px;
-        }
+.small-img1:hover img {
+    transform: scale(1.2);
+}
 
-        .small-img {
-            width: 80px;
-            overflow: hidden;
-            border: 0.5px solid black;
-        }
+.right {
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .small-img img {
-            width: inherit;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+.product-id,
+.product-name,
+.product-description,
+.phone-number,
+.product-price,
+.product-address {
+    padding: 7px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.product-name{
+    font-size: 30px;
+    text-align:center;
+    font-weight: bold;
+}
+.product_name p {
+    text-align:center;
+}
+.product-price p1 {
+    color: #2ed32e;
+}
 
-        .small-img:hover img {
-            transform: scale(1.2);
-        }
+.btn1 {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        .right {
-            width: 60%;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+.btn1:hover {
+    background-color: #0056b3;
+}
 
-        .product-id, .product-name, .product-description, .phone-number, .product-price, .product-address {
-            padding: 10px;
-            font-size: 24px;
-            margin-bottom: 25px;
-        }
-
-        .product-price p1 {
-            color: rgb(46, 211, 46);
-        }
-        
-
-
-        @media (max-width: 768px) {
-            .flex-box {
-                flex-direction: column;
-            }
-
-            .left,
-            .right {
-                width: 100%;
-            }
-
-            .images {
-                width: 100%;
-                margin-left: 0;
-                justify-content: center;
-            }
-
-            .big-img {
-                margin: 0 auto;
-                text-align: center;
-            }
-        }
     </style>
 
     <div class="fab-container">
@@ -194,12 +205,12 @@ if (isset($_GET['pid'])) {
         </ul>
     </div>
 
-    <br><br><br> <br><br><br> <br><br><br> <br><br><br>
-
+    
+<!-- 
     <div class="header">
         <h1><?php echo $row['name']; ?></h1>
-    </div>
-
+    </div> -->
+    <h1 class="title"> <span>user</span> profile page </h1>
   
     <div class="flex-box">
         
@@ -228,24 +239,30 @@ if (isset($_GET['pid'])) {
         </script>
 
         <div class="right">
-            <!-- <div class="product-name">
-                <p>Product Name: <?php echo $row['name']; ?></p>
-            </div> -->
+            <div class="product-name">
+                <p><?php echo $row['name']; ?></p>
+            </div>
             <div class="product-id">
                 <p>Product ID: <?php echo $row['pid']; ?></p>
             </div>
             <div class="product-description">
-                <p>Description: <?php echo $row['description']; ?></p>
+                <p>Description: </p>
+                <p><?php echo $row['description']; ?></p>
             </div>
             <div class="product-price">
                 <p>Price: <p1>Rs. <?php echo $row['price']; ?>/-</p1> </p>
             </div>
             <div class="product-address">
-                <p>Name and Address: <?php echo $row['nameAddress']; ?></p>
+                <p>Name and Address: </p>
+                <p><?php echo $row['nameAddress']; ?></p>
             </div>
             <div class="phone-number">
                 <p>Phone: <?php echo $row['pnumber']; ?></p>
             </div>
+            <form method="POST" action="cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['pid']; ?>">
+                            <input type="submit" name="add_to_cart" value="Add to Cart" class="btn">
+                        </form>
         </div>
     </div>
 

@@ -7,8 +7,14 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if (!isset($user_id)) {
-    header('location:login1.php');
+    header('location: login1.php');
+    exit();
 }
+
+// Query to retrieve unread notifications for the user
+$select_notifications = $conn->prepare('SELECT * FROM notifications WHERE user_id = ? AND is_read = 0');
+$select_notifications->execute([$user_id]);
+$notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -25,15 +31,27 @@ if (!isset($user_id)) {
 
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/notifications.css">
+   
 
+   
 </head>
 
 <body style="background-image: url('B1.jpg'); width:100%">
 
-
-
     <h1 class="title"> <span>user</span> profile page </h1>
+
+    
+
+    <div id="notifications-container" class="notifications-container">
+    <h3>Notifications</h3>
+    <ul class="notifications-list">
+        <?php foreach ($notifications as $notification) : ?>
+            <li><?= $notification['message'] ?> - <?= $notification['timestamp'] ?></li>
+            <hr>
+        <?php endforeach; ?>
+    </ul>
+</div>
 
 
     <div class="fab-container">
@@ -42,16 +60,12 @@ if (!isset($user_id)) {
         </div>
 
         <ul class="fab-options">
-
-            <a href="">
+            <a href="./site-home/#home">
                 <li>
-
                     <div class="fab-icon-holder">
                         <i class="fas fa-home"></i>
                     </div>
-
                     <span class="fab-label">Home</span>
-
                 </li>
             </a>
 
@@ -81,13 +95,20 @@ if (!isset($user_id)) {
                     <span class="fab-label">Profile</span>
                 </li>
             </a>
-
         </ul>
     </div>
 
+    <!-- <div class="notification-icon" onclick="toggleNotifications()">
+    <i class="fas fa-bell"></i>
+    </div> -->
+
+    <div class="notification-icon" onclick="toggleNotifications()">
+    <i class="fas fa-bell"></i>
+    <div class="notification-dot" id="notification-dot"></div>
+</div>
+
 
     <section class="profile-container">
-
         <?php
         $select_profile = $conn->prepare('SELECT * FROM `users` WHERE id = ?');
         $select_profile->execute([$user_id]);
@@ -101,19 +122,50 @@ if (!isset($user_id)) {
 
             <div class="flex-btn">
                 <a href="site-home/index.php" class="option-btn">Go to Home</a>
-                <a href="php admin crud/database2.php" class="option-btn">My Listnings</a>
-
+                <a href="php admin crud/database2.php" class="option-btn">My Listings</a>
             </div>
             <br>
             <a href="user_profile_update.php" class="btn">Update Profile</a>
             <a href="logout.php" class="delete-btn">Logout</a>
             <a href="php admin crud/cart.php" class="option-btn">My Cart</a>
             <br>
-
-
         </div>
-
     </section>
+
+    <!-- Display notifications on the profile page -->
+    <!-- <div class="notifications">
+        <h3>Unread Notifications</h3>
+        <ul>
+            <?php foreach ($notifications as $notification) : ?>
+                <li><?= $notification['message'] ?> - <?= $notification['timestamp'] ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div> -->
+
+    <!-- <script>
+    function toggleNotifications() {
+        var notificationsContainer = document.getElementById('notifications-container');
+        notificationsContainer.style.display = (notificationsContainer.style.display === 'block') ? 'none' : 'block';
+    }
+</script> -->
+
+<script>
+    function toggleNotifications() {
+        var notificationsContainer = document.getElementById('notifications-container');
+        notificationsContainer.style.display = (notificationsContainer.style.display === 'block') ? 'none' : 'block';
+
+        // Hide the red dot when notifications are opened
+        var notificationDot = document.getElementById('notification-dot');
+        notificationDot.style.display = 'none';
+    }
+
+    // Function to show the red dot (called when a new notification arrives)
+    function showNotificationDot() {
+        var notificationDot = document.getElementById('notification-dot');
+        notificationDot.style.display = 'block';
+    }
+</script>
+
 
 </body>
 

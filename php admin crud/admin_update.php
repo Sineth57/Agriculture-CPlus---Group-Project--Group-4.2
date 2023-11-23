@@ -8,28 +8,41 @@ if (isset($_POST['update_product'])) {
     $product_userid = $_POST['product_userid'];
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
-    $product_image = $_FILES['product_image']['name'];
-    $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-    $product_image_folder = 'uploaded_img/' . $product_image;
+
+     // Handling multiple images
+     $product_images = array();
+     for ($i = 1; $i <= 3; $i++) {
+         $key = "product_image{$i}";
+         $product_images[] = $_FILES[$key]['name'];
+         ${"product_image_tmp_name{$i}"} = $_FILES[$key]['tmp_name'];
+     }
+
+
     $product_description = $_POST['product_description'];
+    $product_nameAddress = $_POST['product_nameAddress'];
     $product_pnumber = $_POST['product_pnumber'];
 
     if (
         empty($product_userid) ||
         empty($product_name) ||
         empty($product_price) ||
-        empty($product_image) ||
+        in_array('', $product_images) || // Check if any image field is empty
         empty($product_description) ||
+        empty($product_nameAddress) ||
         empty($product_pnumber)
     ) {
         $message[] = 'please fill out all!';
     } else {
-        $update_data = "UPDATE products SET userid='$product_userid', name='$product_name', price='$product_price', image='$product_image', description='$product_description', pnumber='$product_pnumber'  WHERE id = '$id'";
+        $update_data = "UPDATE products SET userid='$product_userid', name='$product_name', price='$product_price', image='$product_images[0]', image2='$product_images[1]', image3='$product_images[2]', description='$product_description', pnumber='$product_pnumber', nameAddress='$product_nameAddress'  WHERE pid = '$id'";
         $upload = mysqli_query($conn, $update_data);
 
         if ($upload) {
-            move_uploaded_file($product_image_tmp_name, $product_image_folder);
-            header('location:database.php');
+            // Move uploaded images to folder
+            for ($i = 0; $i < 3; $i++) {
+                $product_image_folder = "uploaded_img/{$product_images[$i]}";
+                move_uploaded_file(${"product_image_tmp_name" . ($i + 1)}, $product_image_folder);
+            }
+            // header('location:database.php');
         } else {
             $$message[] = 'please fill out all!';
         }
@@ -130,10 +143,18 @@ if (isset($_POST['update_product'])) {
                 <input type="number" min="0" class="box" name="product_price" value="<?php echo $row[
                     'price'
                 ]; ?>" placeholder="enter the product price">
-                <input type="file" class="box" name="product_image" accept="image/png, image/jpeg, image/jpg">
+                <input type="file" class="box" name="product_image1" accept="image/png, image/jpeg, image/jpg">
+                <input type="file" class="box" name="product_image2" accept="image/png, image/jpeg, image/jpg">
+                <input type="file" class="box" name="product_image3" accept="image/png, image/jpeg, image/jpg">
                 <input type="text" class="box" name="product_description" value="<?php echo $row[
                     'description'
                 ]; ?>" placeholder="enter the product description">
+
+<input type="text" class="box" name="product_nameAddress" value="<?php echo $row[
+                    'nameAddress'
+                ]; ?>" placeholder="enter the your name and address">
+
+
                 <input type="text" class="box" name="product_pnumber" value="<?php echo $row[
                     'pnumber'
                 ]; ?>" placeholder="enter the phone number">

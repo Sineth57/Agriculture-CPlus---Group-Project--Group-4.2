@@ -4,7 +4,7 @@
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM products WHERE pid = $id");
-    header('location:admin_page.php');
+    header('location:database.php');
 }
 ?>
 
@@ -176,7 +176,7 @@ if (isset($_POST['submit'])) {
                     <a href="admin_update.php?edit=<?php echo $row[
                         'pid'
                     ]; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
-                    <a href="admin_page.php?delete=<?php echo $row[
+                    <a href="database.php?delete=<?php echo $row[
                         'pid'
                     ]; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
                 </td>
