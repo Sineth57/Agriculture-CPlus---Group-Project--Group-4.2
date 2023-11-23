@@ -1,0 +1,52 @@
+   .notification-icon {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .notifications-container {
+        display: none;
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        width: 300px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius:15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .notifications-container h3{
+        font-size: 20px;
+        font-weight: bolder;
+        color: gray;
+        margin-bottom: 10px;
+       
+    }
+
+    .notifications-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        font-size:14px;
+        /* color: gray; */
+    }
+    .notification-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: none;
+}
+
+
+    .notifications-list li {
+        margin-bottom: 10px;
+    }

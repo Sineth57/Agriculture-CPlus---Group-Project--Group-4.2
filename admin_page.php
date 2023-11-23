@@ -105,6 +105,9 @@ if (!isset($admin_id)) {
             </div>
             <br>
             <a href="site-home/index.php" class="option-btn">Go to Home</a>
+            <!-- Add this button to the admin page -->
+<a href="send_notification.php" class="btn">Send Notification</a>
+
             <!-- <a href="php admin crud/cartAdmin.php" class="option-btn">My Cart</a> -->
         </div>
 

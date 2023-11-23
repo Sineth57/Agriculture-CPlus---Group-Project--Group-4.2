@@ -89,14 +89,16 @@ if (isset($_POST['submit'])) {
             display: flex;
             max-width: 1250px;
             margin: 20px auto;
-            padding: 10px;
+            padding: 5px;
             background-color: #f1eeee;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            min-height: 300px;
-            border: 2px solid #0c0c0c;
+            /* min-height: 100px; */
+            border: 1px solid gray;
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease;
+
+            
         }
         
         .product-card:hover {
@@ -109,7 +111,7 @@ if (isset($_POST['submit'])) {
         }
         
         .product-image img {
-            width: 100%;
+            width: 60%;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -141,12 +143,14 @@ if (isset($_POST['submit'])) {
         
         .contact-button {
             display: inline-block;
+            font-size: 18px;
             padding: 10px;
             background-color: #4CAF50;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            text-align:center;
         }
         
         .contact-button:hover {
@@ -156,21 +160,23 @@ if (isset($_POST['submit'])) {
         .flex-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            /* justify-content: space-between; */
+            
         }
 
         .flex-box {
             display: flex;
-            width: 48%;
+            width: 45%;
             max-width: 1250px;
             margin: 20px auto;
             margin-bottom: 20px;
             padding: 10px;
             background-color: #f1eeee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             box-sizing: border-box;
             min-height: 300px;
-            border: 2px solid #0c0c0c;
+            /* border: 4px solid green; */
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease;
@@ -186,9 +192,9 @@ if (isset($_POST['submit'])) {
             padding-right: 10px;
         }
         
-        .product-image img {
-            width: 100%;
-            height: auto;
+        .flex-container .pro-image img {
+            max-width: 100%;
+            max-height: 100%;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             flex-grow: 1;
@@ -204,7 +210,18 @@ if (isset($_POST['submit'])) {
         .product-id, .product-name, .product-description, .phone-number, .product-price {
             padding: 10px;
             font-size: 18px;
-            margin-bottom: 25px;
+            margin-bottom: px;
+        }
+        .product-name{
+            font-size:25px;
+            color: green;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .product-description{
+            font-size:15px;
+            color: gray;
+            margin-top: 5px;
         }
 
         @media screen and (max-width: 600px) {
@@ -278,7 +295,7 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
 
-        <br><br>
+      
 
         <?php
         if (isset($_POST['submit'])) {
@@ -321,14 +338,14 @@ if (isset($_POST['submit'])) {
             
                 <div class="flex-box">
                     <div class="left">
-                        <div class="product-image">
+                        <div class="pro-image">
                             <img src="uploaded_img/<?php echo $row['image']; ?>" alt="Product Image">
                         </div>
                         
                     </div>
                     <div class="right">
                         <div class="product-name">
-                            <p>Product Name: <?php echo $row['name']; ?></p>
+                            <p> <?php echo $row['name']; ?></p>
                         </div>
                         <div class="product-description">
                             <p>Description: <?php echo $row['description']; ?></p>
@@ -336,7 +353,7 @@ if (isset($_POST['submit'])) {
                         <div class="product-price">
                             <p>Price: Rs. <?php echo $row['price']; ?>/-</p>
                         </div>
-                        <div class="button"><a href="userDetails.php?id=<?php echo $row['id']; ?>" class="btn">
+                        <div class="button"><a href="userDetails.php?pid=<?php echo $row['pid']; ?>" class="btn">
                             <i class="fas fa-edit"></i> Contact
                         </a></div>
                         <form method="POST" action="cart.php">
