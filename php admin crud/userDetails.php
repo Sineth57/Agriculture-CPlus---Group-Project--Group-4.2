@@ -38,128 +38,14 @@ if (isset($_GET['pid'])) {
 
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
 
     <title>CPlus Products</title>
 </head>
 
 <body style="background-image: url('B1.jpg');">
 
-    <style>
-      body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.header {
-    color: #333;
-    text-align: center;
-    padding: 20px;
-    font-size: 36px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.flex-box {
-    display: flex;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.left {
-    width: 50%;
-    padding-right: 20px;
-}
-
-.big-img{
-    width: 90%;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-.big-img img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-.images {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin-top: 15px;
-}
-
-.small-img {
-    width: 30%;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.small-img img {
-    width: 100%;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.small-img1:hover img {
-    transform: scale(1.2);
-}
-
-.right {
-    width: 50%;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.product-id,
-.product-name,
-.product-description,
-.phone-number,
-.product-price,
-.product-address {
-    padding: 7px;
-    font-size: 18px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.product-name{
-    font-size: 30px;
-    text-align:center;
-    font-weight: bold;
-}
-.product_name p {
-    text-align:center;
-}
-.product-price p1 {
-    color: #2ed32e;
-}
-
-.btn1 {
-    padding: 15px;
-    font-size: 18px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn1:hover {
-    background-color: #0056b3;
-}
-
-    </style>
+<h1 class="title1"> <span><?php echo $row['name']; ?></span> <br>product details </h1>
 
     <div class="fab-container">
         <div class="fab fab-icon-holder">
@@ -210,7 +96,7 @@ if (isset($_GET['pid'])) {
     <div class="header">
         <h1><?php echo $row['name']; ?></h1>
     </div> -->
-    <h1 class="title"> <span>user</span> profile page </h1>
+    
   
     <div class="flex-box">
         
@@ -246,18 +132,18 @@ if (isset($_GET['pid'])) {
                 <p>Product ID: <?php echo $row['pid']; ?></p>
             </div>
             <div class="product-description">
-                <p>Description: </p>
-                <p><?php echo $row['description']; ?></p>
-            </div>
-            <div class="product-price">
-                <p>Price: <p1>Rs. <?php echo $row['price']; ?>/-</p1> </p>
+                <p class="desp">Description: </p>
+                <p class="desd"><?php echo $row['description']; ?></p>
             </div>
             <div class="product-address">
-                <p>Name and Address: </p>
-                <p><?php echo $row['nameAddress']; ?></p>
+                <p class="desp">Name and Address: </p>
+                <p class="desd"><?php echo $row['nameAddress']; ?></p>
+            </div>
+            <div class="product-price">
+              <p1>Rs. <?php echo $row['price']; ?>/-</p1> 
             </div>
             <div class="phone-number">
-                <p>Phone: <?php echo $row['pnumber']; ?></p>
+                <p>Phone:  <?php echo $row['pnumber']; ?></p>
             </div>
             <form method="POST" action="cart.php">
                             <input type="hidden" name="product_id" value="<?php echo $row['pid']; ?>">
