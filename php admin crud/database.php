@@ -41,10 +41,12 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/style.css">
 
 
-    <title>Database</title>
+    <title>Admin Page - User Products</title>
 </head>
 
 <body style="background-image: url('B1.jpg');">
+
+<h1 class="title1"> <span>Admin Page</span> <br>Listed products </h1>
 
     <div class="fab-container">
         <div class="fab fab-icon-holder">
