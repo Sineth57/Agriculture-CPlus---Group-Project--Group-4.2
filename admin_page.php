@@ -39,7 +39,7 @@ if (!isset($admin_id)) {
 
         <ul class="fab-options">
 
-            <a href="/site-home/index.php/#home">
+            <a href="./site-home/index.php">
                 <li>
 
                     <div class="fab-icon-holder">

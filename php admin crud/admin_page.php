@@ -70,7 +70,7 @@ if (isset($_GET['delete'])) {
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="x-icon" href="logo.png">
-
+    
 </head>
 
 <body style="background-image: url('B1.jpg');">
@@ -124,6 +124,9 @@ if (isset($_GET['delete'])) {
         </ul>
     </div>
 
+    
+    <h1 class="title1"> <span>CPlus</span> <br>list your products </h1>
+
     <?php if (isset($message)) {
         foreach ($message as $message) {
             echo '<span class="message">' . $message . '</span>';
@@ -135,14 +138,14 @@ if (isset($_GET['delete'])) {
             <form action="<?php $_SERVER[
                 'PHP_SELF'
             ]; ?>" method="post" enctype="multipart/form-data">
-                <h3>add your new product</h3>
+                <h3>add your new product details here</h3>
 
                 <input type="number" placeholder="Enter User ID" name="product_userid" class="box">
                 <input type="text" placeholder="Enter product name" name="product_name" class="box">
 
                 <div class="input-group mb-3">
                     <span class="input-group-text"></span>
-                    <textarea class="box" placeholder="Enter product description" name="product_description"
+                    <textarea class="box1" placeholder="Enter product description" name="product_description"
                         required></textarea>
                 </div>
 
@@ -150,7 +153,7 @@ if (isset($_GET['delete'])) {
 
                 <div class="input-group mb-3">
                     <span class="input-group-text"></span>
-                    <textarea class="box" placeholder="Enter your name and address" name="product_nameAddress"
+                    <textarea class="box1" placeholder="Enter your name and address" name="product_nameAddress"
                         required></textarea>
                 </div>
 

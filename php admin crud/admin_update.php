@@ -64,6 +64,8 @@ if (isset($_POST['update_product'])) {
 
 <body style="background-image: url('B1.jpg');">
 
+<h1 class="title1"> <span>CPlus</span> <br>update your product</h1>
+
     <div class="fab-container">
         <div class="fab fab-icon-holder">
             <i class="fa fa-bars"></i>

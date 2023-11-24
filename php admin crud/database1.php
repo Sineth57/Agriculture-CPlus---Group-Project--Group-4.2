@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                     <span class="fab-label">Contacts</span>
                 </li>
             </a>
-            <a href="../site-home/#profile">
+            <a href="../user_page.php">
                 <li>
                     <div class="fab-icon-holder">
                         <i class="fas fa-user-circle"></i>
