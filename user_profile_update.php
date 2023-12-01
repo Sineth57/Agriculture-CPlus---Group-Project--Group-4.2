@@ -1,26 +1,35 @@
 <?php
 
+//Include configuration file
 include 'config.php';
 
+//Start the session
 session_start();
 
+//Get user ID from the session
 $user_id = $_SESSION['user_id'];
 
+//Check whether the user id is set or not, if not redirects to login page
 if (!isset($user_id)) {
     header('location:login.php');
 }
 
+//Check whether the form is submitted
 if (isset($_POST['update'])) {
+
+    //Filter and retrieve data
     $name = $_POST['name'];
     $name = filter_var($name, FILTER_SANITIZE_STRING);
     $email = $_POST['email'];
     $email = filter_var($email, FILTER_SANITIZE_STRING);
 
+    //SQL query to udate 
     $update_profile = $conn->prepare(
         'UPDATE `users` SET name = ?, email = ? WHERE id = ?'
     );
     $update_profile->execute([$name, $email, $user_id]);
 
+    //Profile image update
     $old_image = $_POST['old_image'];
     $image = $_FILES['image']['name'];
     $image_tmp_name = $_FILES['image']['tmp_name'];
@@ -31,11 +40,13 @@ if (isset($_POST['update'])) {
         if ($image_size > 2000000) {
             $message[] = 'image size is too large';
         } else {
+            //Query to update the image
             $update_image = $conn->prepare(
                 'UPDATE `users` SET image = ? WHERE id = ?'
             );
             $update_image->execute([$image, $user_id]);
 
+            //Move updated image to the image folder
             if ($update_image) {
                 move_uploaded_file($image_tmp_name, $image_folder);
                 unlink('uploaded_img/' . $old_image);
@@ -44,6 +55,7 @@ if (isset($_POST['update'])) {
         }
     }
 
+    //Update the password
     $old_pass = $_POST['old_pass'];
     $previous_pass = md5($_POST['previous_pass']);
     $previous_pass = filter_var($previous_pass, FILTER_SANITIZE_STRING);
@@ -52,12 +64,15 @@ if (isset($_POST['update'])) {
     $confirm_pass = md5($_POST['confirm_pass']);
     $confirm_pass = filter_var($confirm_pass, FILTER_SANITIZE_STRING);
 
+    //Check old, new and confirm password
     if (!empty($previous_pass) || !empty($new_pass) || !empty($confirm_pass)) {
+        //Check whether the old password it matched
         if ($previous_pass != $old_pass) {
             $message[] = 'old password not matched!';
         } elseif ($new_pass != $confirm_pass) {
             $message[] = 'confirm password not matched!';
         } else {
+            //SQL query to update password
             $update_password = $conn->prepare(
                 'UPDATE `users` SET password = ? WHERE id = ?'
             );
@@ -78,8 +93,6 @@ if (isset($_POST['update'])) {
 
     <title>user profile update</title>
 
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
     <link rel="shortcut icon" type="x-icon" href="logo.png">
@@ -90,8 +103,7 @@ if (isset($_POST['update'])) {
 
 <body style="background-image: url('B1.jpg');">
 
-
-
+    <!-- Display messages -->
     <?php if (isset($message)) {
         foreach ($message as $message) {
             echo '
@@ -107,6 +119,7 @@ if (isset($_POST['update'])) {
 
     <h1 class="title"> update <span>user</span> profile </h1>
 
+    <!-- navigation button -->
     <div class="fab-container">
         <div class="fab fab-icon-holder">
             <i class="fa fa-bars"></i>
@@ -156,14 +169,17 @@ if (isset($_POST['update'])) {
         </ul>
     </div>
 
+    <!-- Profile update -->
     <section class="update-profile-container">
 
         <?php
+        //Fetch user data from the database
         $select_profile = $conn->prepare('SELECT * FROM `users` WHERE id = ?');
         $select_profile->execute([$user_id]);
         $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
         ?>
 
+        <!-- Form for updating user profile -->
         <form action="" method="post" enctype="multipart/form-data">
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
             <div class="flex">
@@ -194,6 +210,7 @@ if (isset($_POST['update'])) {
                     <input type="password" class="box" name="confirm_pass" placeholder="confirm new password">
                 </div>
             </div>
+            <!-- Buttons for submitting form and go back -->
             <div class="flex-btn">
                 <input type="submit" value="update profile" name="update" class="btn">
                 <a href="user_page.php" class="option-btn">go back</a>

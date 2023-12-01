@@ -1,11 +1,15 @@
 <?php
 
+//include configuration file(config.php)
 include 'config.php';
 
+//start the session
 session_start();
 
+//Get admin's ID from the session
 $admin_id = $_SESSION['admin_id'];
 
+//Check whether the admin ID is set, If not it redirecets to the login page
 if (!isset($admin_id)) {
     header('location:login1.php');
 }
@@ -14,6 +18,7 @@ if (!isset($admin_id)) {
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Starting the head -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,17 +26,21 @@ if (!isset($admin_id)) {
 
     <title>Admin Page</title>
 
+    <!-- Include the font awesome css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
     <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <!-- Include style.css file in the css folder -->
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
+<!-- Body Start -->
 <body style="background-image: url('B1.jpg');">
 
+    <!-- Top bar -->
     <h1 class="title"> <span>admin</span> profile page </h1>
 
+    <!-- Page navigation button/icon -->
     <div class="fab-container">
         <div class="fab fab-icon-holder">
             <i class="fa fa-bars"></i>
@@ -81,16 +90,21 @@ if (!isset($admin_id)) {
         </ul>
     </div>
 
-
+    <!-- Start of admin profile -->
     <section class="profile-container">
 
         <?php
+        //Fetch admin details from the 'users' table in the darabase
         $select_profile = $conn->prepare('SELECT * FROM `users` WHERE id = ?');
+        // Execute the prepared statement with the provided admin_id
         $select_profile->execute([$admin_id]);
+        // Fetch the result
         $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
         ?>
 
         <div class="profile">
+
+            <!-- Fetch admin details -->
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
             <h3>User ID: <?= $fetch_profile['id'] ?></h3>
             <h3>Name: <?= $fetch_profile['name'] ?></h3>
@@ -105,8 +119,8 @@ if (!isset($admin_id)) {
             </div>
             <br>
             <a href="site-home/index.php" class="option-btn">Go to Home</a>
-            <!-- Add this button to the admin page -->
-<a href="send_notification.php" class="btn">Send Notification</a>
+            
+            <a href="send_notification.php" class="btn">Send Notification</a>
 
             <!-- <a href="php admin crud/cartAdmin.php" class="option-btn">My Cart</a> -->
         </div>

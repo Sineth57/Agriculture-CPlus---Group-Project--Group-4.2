@@ -1,17 +1,21 @@
 <?php
 
+//Include configuration file
 include 'config.php';
 
+//Start the session
 session_start();
 
+//Get user id from the session
 $user_id = $_SESSION['user_id'];
 
+//Check whether the user is not set, if not redirects to login page
 if (!isset($user_id)) {
     header('location: login1.php');
     exit();
 }
 
-// Query to retrieve unread notifications for the user
+//Query to retrieve unread notifications for the user
 $select_notifications = $conn->prepare('SELECT * FROM notifications WHERE user_id = ? AND is_read = 0');
 $select_notifications->execute([$user_id]);
 $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
@@ -25,13 +29,14 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>User Page</title>
+    <title>User Profile Page</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/notifications.css">
+
    
 
    
@@ -41,11 +46,11 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
 
     <h1 class="title"> <span>user</span> profile page </h1>
 
-    
-
+    <!-- Container for displaying notifications -->
     <div id="notifications-container" class="notifications-container">
     <h3>Notifications</h3>
     <ul class="notifications-list">
+        <!-- Loop for notifications and display each with a time and date -->
         <?php foreach ($notifications as $notification) : ?>
             <li><?= $notification['message'] ?> - <?= $notification['timestamp'] ?></li>
             <hr>
@@ -53,7 +58,7 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
     </ul>
 </div>
 
-
+            <!-- Navigation button -->
     <div class="fab-container">
         <div class="fab fab-icon-holder">
             <i class="fa fa-bars"></i>
@@ -105,21 +110,23 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
     <div class="notification-icon" onclick="toggleNotifications()">
     <i class="fas fa-bell"></i>
     <div class="notification-dot" id="notification-dot"></div>
-</div>
-
-
+    </div>
+   
+            <!-- Container for user profile -->
     <section class="profile-container">
         <?php
+        //Fetch user details from users table in database
         $select_profile = $conn->prepare('SELECT * FROM `users` WHERE id = ?');
         $select_profile->execute([$user_id]);
         $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
         ?>
-
+        <!-- Display user profile details -->
         <div class="profile">
             <img src="uploaded_img/<?= $fetch_profile['image'] ?>" alt="">
             <h3>User ID: <?= $fetch_profile['id'] ?></h3>
             <h3>Name: <?= $fetch_profile['name'] ?></h3>
 
+            <!-- Buttons for navigation through pages -->
             <div class="flex-btn">
                 <a href="site-home/index.php" class="option-btn">Go to Home</a>
                 <a href="php admin crud/database2.php" class="option-btn">My Listings</a>
@@ -132,22 +139,11 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
 
-    <!-- Display notifications on the profile page -->
-    <!-- <div class="notifications">
-        <h3>Unread Notifications</h3>
-        <ul>
+
             <?php foreach ($notifications as $notification) : ?>
                 <li><?= $notification['message'] ?> - <?= $notification['timestamp'] ?></li>
             <?php endforeach; ?>
-        </ul>
-    </div> -->
-
-    <!-- <script>
-    function toggleNotifications() {
-        var notificationsContainer = document.getElementById('notifications-container');
-        notificationsContainer.style.display = (notificationsContainer.style.display === 'block') ? 'none' : 'block';
-    }
-</script> -->
+     
 
 <script>
     function toggleNotifications() {

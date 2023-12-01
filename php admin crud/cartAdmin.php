@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-// Include your database connection code here
+// Include configuration file
 include 'config.php';
 
-// Check if the 'add_to_cart' form is submitted
+// Check whether the 'add_to_cart' form is submitted
 if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
     $user_id = $_SESSION['admin_id'];
 
-    // Check if the product is already in the user's cart
+    // Check whether the product is already in the user's cart
     $checkCartQuery = "SELECT * FROM cart WHERE admin_id = $admin_id AND product_id = $product_id";
     $checkCartResult = mysqli_query($conn, $checkCartQuery);
 

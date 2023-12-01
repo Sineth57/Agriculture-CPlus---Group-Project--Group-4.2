@@ -1,9 +1,12 @@
 <?php
 
+// Include configuration file
 @include 'config.php';
+
 
 $id = $_GET['edit'];
 
+// Check whether the update is submitted
 if (isset($_POST['update_product'])) {
     $product_userid = $_POST['product_userid'];
     $product_name = $_POST['product_name'];
@@ -22,17 +25,19 @@ if (isset($_POST['update_product'])) {
     $product_nameAddress = $_POST['product_nameAddress'];
     $product_pnumber = $_POST['product_pnumber'];
 
+    // Check whether the input fields are empty or not
     if (
         empty($product_userid) ||
         empty($product_name) ||
         empty($product_price) ||
-        in_array('', $product_images) || // Check if any image field is empty
+        in_array('', $product_images) || // Check whether any image field is empty
         empty($product_description) ||
         empty($product_nameAddress) ||
         empty($product_pnumber)
     ) {
         $message[] = 'please fill out all!';
     } else {
+        // SQL query to update data
         $update_data = "UPDATE products SET userid='$product_userid', name='$product_name', price='$product_price', image='$product_images[0]', image2='$product_images[1]', image3='$product_images[2]', description='$product_description', pnumber='$product_pnumber', nameAddress='$product_nameAddress'  WHERE pid = '$id'";
         $upload = mysqli_query($conn, $update_data);
 
@@ -114,19 +119,19 @@ if (isset($_POST['update_product'])) {
 
         </ul>
     </div>
-
+<!-- To display messages -->
     <?php if (isset($message)) {
         foreach ($message as $message) {
             echo '<span class="message">' . $message . '</span>';
         }
     } ?>
 
+<!-- Products update form container -->
     <div class="container">
-
-
         <div class="admin-product-form-container centered">
 
             <?php
+            //SQL query to get the details for the id
             $select = mysqli_query(
                 $conn,
                 "SELECT * FROM products WHERE pid = '$id'"

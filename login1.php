@@ -1,29 +1,39 @@
 <?php
 
+//Include configuration file
 include 'config.php';
 
+//Session start
 session_start();
 
+//Check whether the logging form is submitted
 if (isset($_POST['submit'])) {
+
+    //Filter and retrieve email and password
     $email = $_POST['email'];
     $email = filter_var($email, FILTER_SANITIZE_STRING);
-    $pass = md5($_POST['pass']);
+    //Hash the password
+    $pass = md5($_POST['pass']);  
     $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
+    //SQL query to check user credentials
     $select = $conn->prepare(
         'SELECT * FROM `users` WHERE email = ? AND password = ?'
     );
     $select->execute([$email, $pass]);
     $row = $select->fetch(PDO::FETCH_ASSOC);
 
+    //Check usre credentials
     if ($select->rowCount() > 0) {
+
+        //Check user type and redirect
         if ($row['user_type'] == 'admin') {
             $_SESSION['admin_id'] = $row['id'];
             header('location:admin_page.php');
         } elseif ($row['user_type'] == 'user') {
             $_SESSION['user_id'] = $row['id'];
 
-            // Assuming `cart_id` is the column in your users table for the cart identifier
+            // Store value of cart_id
             $_SESSION['cart_id'] = $row['cart_id'];
 
             header('location:user_page.php');
@@ -31,6 +41,7 @@ if (isset($_POST['submit'])) {
             $message[] = 'No user found!';
         }
     } else {
+        //Display error message for incorrect email or password
         $show_error = true;
         $error_message = 'Incorrect email or password!';
     }
@@ -50,6 +61,7 @@ if (isset($_POST['submit'])) {
 
 <body>
 
+    <!-- Display masseages -->
     <?php if (isset($message)) {
         foreach ($message as $message) {
             echo '
@@ -63,10 +75,12 @@ if (isset($_POST['submit'])) {
         }
     } ?>
 
+    <!-- Left side image -->
     <section class="side">
         <img src="./img/img.svg" alt="">
     </section>
 
+    <!-- Loggin form -->
     <section class="main">
         <div class="login-container">
             <p class="title">Welcome back</p>
@@ -86,6 +100,7 @@ if (isset($_POST['submit'])) {
 
                 <button type="submit" value="login now" class="submit" name="submit">Login</button>
             </form>
+            <!-- Link to register page -->
             <p class="register">Don't have an account?</p>
             <a href="register1.php">Create account</a>
         </div>
@@ -94,6 +109,7 @@ if (isset($_POST['submit'])) {
 </body>
 
 <script>
+    //Display alert with error massages
     alert("<?php echo $error_message; ?>");
 </script>
 

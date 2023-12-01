@@ -1,6 +1,8 @@
 <?php
+// INclude configuration file 
 @include 'config.php';
 
+// Check whether the delete is submitted
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM products WHERE pid = $id");
@@ -10,11 +12,11 @@ if (isset($_GET['delete'])) {
 
 
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'user_form';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+// $servername = 'localhost';
+// $username = 'root';
+// $password = '';
+// $dbname = 'user_form';
+// $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die('Connection failed: ' . mysqli_connect_error());
 } // Retrieve search query from search bar
@@ -45,7 +47,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body style="background-image: url('B1.jpg');">
-
+<!-- Top heading -->
 <h1 class="title1"> <span>Admin Page</span> <br>Listed products </h1>
 
     <div class="fab-container">
@@ -99,6 +101,7 @@ if (isset($_POST['submit'])) {
 
     <br><br><br>
 
+    <!-- Table to display products in search -->
     <div class="product-display">
 
         <form action="" method="POST">
@@ -122,6 +125,7 @@ if (isset($_POST['submit'])) {
                 </tr>
             </thead>
 
+            <!-- Check whether the search button is submitted and fetching the details -->
             <?php if (isset($_POST['submit'])) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -146,7 +150,7 @@ if (isset($_POST['submit'])) {
 
     <br><br>
 
-
+<!-- SQL query to select all the products to display -->
     <?php $select = mysqli_query($conn, 'SELECT * FROM products'); ?>
     <div class="product-display">
         <table class="product-display-table">
@@ -162,6 +166,7 @@ if (isset($_POST['submit'])) {
                     <th>action</th>
                 </tr>
             </thead>
+            <!-- Fetching all the products from the database -->
             <?php while ($row = mysqli_fetch_assoc($select)) { ?>
             <tr>
                 <td><?php echo $row['pid']; ?></td>

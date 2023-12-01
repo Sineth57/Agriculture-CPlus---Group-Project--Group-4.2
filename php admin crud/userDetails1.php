@@ -1,9 +1,9 @@
 <?php
 session_start();
-// Include your database connection code here
+// Include configuration file
 include 'config.php';
 
-// Check if the product ID is provided in the URL
+// Check whether the product ID is provided 
 if (isset($_GET['id'])) {
     $productID = $_GET['id'];
 
@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        // Check if a product with the given ID exists
+        // Check whether a product with the given ID exists
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
         } else {

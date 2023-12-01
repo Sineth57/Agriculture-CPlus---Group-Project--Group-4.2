@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-// Include your database connection code here
+// Include configuration file
 include 'config.php';
 
-// Check if the 'add_to_cart' form is submitted
+// Check whether the add_to_cart form is submitted
 if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
     $user_id = $_SESSION['user_id'];
 
-    // Check if the product is already in the user's cart
+    // Check whether the product is already in the user's cart
     $checkCartQuery = "SELECT * FROM cart WHERE user_id = $user_id AND product_id = $product_id";
     $checkCartResult = mysqli_query($conn, $checkCartQuery);
 
@@ -43,7 +43,7 @@ function getUserCart($conn, $userId)
     return $cartItems;
 }
 
-// Check if the 'delete_cart_item' form is submitted
+// Check whether the 'delete_cart_item' form is submitted
 if (isset($_POST['delete_cart_item'])) {
     $cart_item_id = $_POST['cart_item_id'];
     $deleteCartItemQuery = "DELETE FROM cart WHERE pid = $cart_item_id";
@@ -64,8 +64,9 @@ if (isset($_POST['delete_cart_item'])) {
 </head>
 
 <body style="background-image: url('B1.jpg');">
+<!-- Top heading -->
+<h1 class="title1"> <span>CPlus</span> <br>Cart products </h1>
 
- 
 <div class="fab-container">
     <div class="fab fab-icon-holder">
         <i class="fa fa-bars"></i>
@@ -110,8 +111,8 @@ if (isset($_POST['delete_cart_item'])) {
     </ul>
 </div>
 
-<br><br><br> <br><br><br>
-
+<!-- <br><br><br> <br><br><br> -->
+<!-- Table to display cart products -->
 <div class="product-display">
     <br><br>
     <table class="product-display-table">
@@ -129,9 +130,11 @@ if (isset($_POST['delete_cart_item'])) {
         </thead>
 
         <?php
+        // Getting user id from the session
         $user_id = $_SESSION['user_id'];
         $cartItems = getUserCart($conn, $user_id);
 
+        // Adding products to the cart tables if those products are already in the cart
         if (!empty($cartItems)) {
             foreach ($cartItems as $item) {
                 echo '<tr>';

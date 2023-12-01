@@ -11,6 +11,8 @@
         <strong>User Listings - Admin Page</strong>
         
     </h2>
+
+    <!-- Table to display users products -->
     <div class="container my-4">
         <table class="table">
             <thead>
@@ -26,9 +28,10 @@
             </thead>
             <tbody>
                 <?php
+                // Include configuration file
                 include 'config.php';
 
-                // Check if user_id is provided in the URL
+                // Check whether the user_id is provided 
                 if (isset($_GET['user_id'])) {
                     $user_id = $_GET['user_id'];
 
@@ -36,6 +39,7 @@
                     $sql = "SELECT * FROM products WHERE userid = $user_id";
                     $result = $conn->query($sql);
 
+                    // Add data to the table
                     if ($result->rowCount() > 0) {
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                             echo "
@@ -63,6 +67,7 @@
             </tbody>
         </table>
     </div>
+    <!-- Bootstrap link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

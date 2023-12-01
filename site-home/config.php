@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','','cart_db2');
+$conn = mysqli_connect('localhost','root','','user_form');
 
 ?>

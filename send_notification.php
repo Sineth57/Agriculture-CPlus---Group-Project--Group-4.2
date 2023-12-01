@@ -1,7 +1,9 @@
 <?php
+
+// Include configuration file
 include 'config.php';
 
-// Check if the form is submitted
+// Check whether the form is submitted
 if (isset($_POST['send_notification'])) {
     $message = $_POST['message'];
 
@@ -24,7 +26,7 @@ if (isset($_POST['send_notification'])) {
 <?php
 include 'config.php';
 
-// Check if the form is submitted
+// Check whether the form is submitted
 if (isset($_POST['send_notificationOne'])) {
     $user_id = $_POST['user_id'];
     $message = $_POST['message'];

@@ -1,9 +1,12 @@
 <?php
+
+// Start the session
 session_start();
 
+// Include configuration file
 include 'config.php';
 
-// Check if the product ID is provided in the URL
+// Check whether the product ID is provided 
 if (isset($_GET['pid'])) {
     $productID = $_GET['pid'];
 
@@ -12,7 +15,7 @@ if (isset($_GET['pid'])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        // Check if a product with the given ID exists
+        // Check whether a product with the given ID exists
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
         } else {
@@ -117,6 +120,7 @@ if (isset($_GET['pid'])) {
             </div> 
         </div>
 
+        <!-- Js to display the clcked image in large -->
         <script>
             let bigImg = document.querySelector('.big-img img');
             function showImg(pic){

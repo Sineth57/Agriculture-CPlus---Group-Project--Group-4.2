@@ -28,59 +28,14 @@
         </div>
       </div>
     </nav> -->
+
+    <!-- Top heading -->
     <h2 style="padding-left:585px; color:white; background-color: green; padding-top:15px; padding-bottom:15px">
         <strong>User
             Details - Admin Page</strong>
     </h2>
 
-    <div class="fab-container">
-        <div class="fab fab-icon-holder">
-            <i class="fa fa-bars"></i>
-        </div>
-
-        <ul class="fab-options">
-
-            <a href="./site-home/#home">
-                <li>
-
-                    <div class="fab-icon-holder">
-                        <i class="fas fa-home"></i>
-                    </div>
-
-                    <span class="fab-label">Home</span>
-
-                </li>
-            </a>
-
-            <a href="../site-home/#service">
-                <li>
-                    <div class="fab-icon-holder">
-                        <i class="fas fa-book" aria-hidden="true"></i>
-                    </div>
-                    <span class="fab-label">Service</span>
-                </li>
-            </a>
-
-            <a href="../site-home/#contact">
-                <li>
-                    <div class="fab-icon-holder">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <span class="fab-label">Contacts</span>
-                </li>
-            </a>
-<!-- 
-            <a href="./user_page.php">
-                <li>
-                    <div class="fab-icon-holder">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <span class="fab-label">Profile</span>
-                </li>
-            </a> -->
-
-        </ul>
-    </div>
+   <!-- Table to display user details -->
 
     <div class="container my-4">
         <table class="table">
@@ -98,7 +53,10 @@
             </thead>
             <tbody>
                 <?php
+                //Include configuration file
                 include 'config.php';
+
+                //SQL query to fetch data from table in the database
                 $sql = 'select * from users';
                 $result = $conn->query($sql);
                 if (!$result) {
@@ -107,6 +65,8 @@
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     echo "
       <tr>
+
+    
         <th>$row[id]</th>
         
         <td><td><img src='uploaded_img/" .
@@ -135,15 +95,10 @@
         </table>
     </div>
 
-
+                <!-- Include bootstrap links -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 </body>
 
 </html>
-
-<!-- 
-//     <td>
-            //     <a class='btn btn-primary' href='userdbproducts.php?id=$row[id]'>See Listings</a>
-            // </td> -->
