@@ -1,15 +1,14 @@
 <?php
 @include 'config.php';
 
-// Check if the 'delete' parameter is set in the URL
+// Check whether the delete parameter is submitted
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    // Use prepared statement to prevent SQL injection
     $deleteStmt = $conn->prepare("DELETE FROM products WHERE pid = ?");
     $deleteStmt->bind_param("i", $id);
     
     if ($deleteStmt->execute()) {
-        // Successful deletion
+        // Redirect to product page
         header('location:admin_page.php');
     } else {
         // Error in deletion
@@ -99,6 +98,7 @@ if (isset($_POST['submit'])) {
 
     <br><br>
     <div class="product-display">
+        <!-- Search bar -->
         <div class="search-container">
             <form action="" method="POST">
                 <input class="search-bar" type="text" name="search" placeholder="Search products...">
@@ -109,6 +109,7 @@ if (isset($_POST['submit'])) {
       
 
         <?php
+        // Chech whethe rthe search button is submitted
         if (isset($_POST['submit'])) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -143,6 +144,7 @@ if (isset($_POST['submit'])) {
 
     <br>
 
+    <!-- Selcet all the products from the database -->
     <?php $select = mysqli_query($conn, 'SELECT * FROM products'); ?>
     <div class="product-display">
         <h2 class="seemore">See newly listed products</h2>
@@ -152,7 +154,7 @@ if (isset($_POST['submit'])) {
         <div class="flex-container">
         
             <?php while ($row = mysqli_fetch_assoc($select)) { ?>
-            
+            <!-- Display products as cards-->
                 <div class="flex-box">
                     <div class="left">
                         <div class="pro-image">

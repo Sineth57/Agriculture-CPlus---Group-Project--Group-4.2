@@ -1,7 +1,12 @@
 <?php
+
+// Start the session
 session_start();
+
+// Include configuration file
 @include 'config.php';
 
+// Chech whether the delete is submitted and retrieve the query
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM products WHERE pid = $id");
@@ -11,11 +16,11 @@ if (isset($_GET['delete'])) {
 
 
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'user_form';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+// $servername = 'localhost';
+// $username = 'root';
+// $password = '';
+// $dbname = 'user_form';
+// $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die('Connection failed: ' . mysqli_connect_error());
 } // Retrieve search query from search bar
@@ -58,6 +63,8 @@ if (!$result) {
 </head>
 
 <body style="background-image: url('B1.jpg');">
+<h1 class="title1"> <span>CPlus</span> <br>Your products </h1>
+
 
     <div class="fab-container">
         <div class="fab fab-icon-holder">
@@ -112,12 +119,14 @@ if (!$result) {
 
     <div class="product-display">
 
+    <!-- Search bar -->
         <form action="" method="POST">
             <input class="searchbar" type="text" name="search" placeholder="Search products...">
             <input class="searchbutton" type="submit" name="submit" value="Search">
         </form>
 
         <br><br>
+        <!-- Display searched products -->
         <table class="product-display-table">
             <thead>
                 <tr style="background-color: green; color:white">
@@ -157,7 +166,7 @@ if (!$result) {
     <br><br>
 
 
-    
+    <!-- Display all the products as a table -->
     <div class="product-display">
         <table class="product-display-table">
             <thead>

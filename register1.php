@@ -1,8 +1,11 @@
 <?php
 
+//Include configuration file
 include 'config.php';
 
+//Check whether the registration form is submitted
 if (isset($_POST['submit'])) {
+    //Filter and retriveve input data from form
     $name = $_POST['name'];
     $name = filter_var($name, FILTER_SANITIZE_STRING);
     $email = $_POST['email'];
@@ -12,17 +15,20 @@ if (isset($_POST['submit'])) {
     $cpass = md5($_POST['cpass']);
     $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
+    //Retrivve images from the form
     $image = $_FILES['image']['name'];
     $image_tmp_name = $_FILES['image']['tmp_name'];
     $image_size = $_FILES['image']['size'];
     $image_folder = 'uploaded_img/' . $image;
 
+    //Check whether user is already registered
     $select = $conn->prepare('SELECT * FROM `users` WHERE email = ?');
     $select->execute([$email]);
 
     if ($select->rowCount() > 0) {
         $message[] = 'User already exists!';
     } else {
+        //Check whether the password is matched
         if ($pass != $cpass) {
             $message[] = 'Confirm password not matched!';
         } elseif ($image_size > 2000000) {
@@ -30,6 +36,8 @@ if (isset($_POST['submit'])) {
         } else {
             $insert = $conn->prepare('INSERT INTO `users`(name, email, password, image) VALUES(?,?,?,?)');
             $insert->execute([$name, $email, $cpass, $image]);
+
+            //Check whether the data adding is successfull
             if ($insert) {
                 // Move uploaded image to folder
                 move_uploaded_file($image_tmp_name, $image_folder);
@@ -56,6 +64,7 @@ if (isset($_POST['submit'])) {
 
 <body>
 
+    <!-- Display messages to user -->
     <?php if (isset($message)) {
         foreach ($message as $message) {
             echo '
@@ -69,10 +78,12 @@ if (isset($_POST['submit'])) {
         }
     } ?>
 
+    <!-- Left image -->
     <section class="side">
         <img src="./img/img.svg" alt="">
     </section>
 
+        <!-- registraiton form -->
     <section class="main">
         <div class="login-container">
             <p class="title">Register Now</p>
@@ -103,6 +114,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <button type="submit" value="" class="submit" name="submit">Submit</button>
             </form>
+            <!-- Link to logging page if user has already registered -->
             <p class="register">Already have an account?</p>
             <a href="login1.php">Login to your account</a>
         </div>

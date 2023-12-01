@@ -1,13 +1,14 @@
 <?php
-
+// Include configuration file
 @include 'config.php';
 
+// Check whether the product add is submitted 
 if (isset($_POST['add_product'])) {
     $product_userid = $_POST['product_userid'];
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
 
-    // Handling multiple images
+    // Get multiple images as inputs
     $product_images = array();
     for ($i = 1; $i <= 3; $i++) {
         $key = "product_image{$i}";
@@ -19,19 +20,20 @@ if (isset($_POST['add_product'])) {
     $product_nameAddress = $_POST['product_nameAddress'];
     $product_pnumber = $_POST['product_pnumber'];
 
-    // Check if any required field is empty
+    // Check whether any required field is empty
     if (
         empty($product_userid) ||
         empty($product_name) ||
         empty($product_price) ||
-        in_array('', $product_images) || // Check if any image field is empty
+        // Check whether any image field is empty
+        in_array('', $product_images) || 
         empty($product_description) ||
         empty($product_nameAddress) ||
         empty($product_pnumber)
     ) {
         $message[] = 'Please fill out all fields.';
     } else {
-        // Insert into products table
+        // Insert the products into table
         $insert = "INSERT INTO products(userid, name, price, image, image2, image3, description, nameAddress, pnumber) VALUES('$product_userid', '$product_name', '$product_price', '$product_images[0]', '$product_images[1]', '$product_images[2]', '$product_description', '$product_nameAddress', '$product_pnumber')";
         
         $upload = mysqli_query($conn, $insert);
@@ -50,6 +52,7 @@ if (isset($_POST['add_product'])) {
     }
 }
 
+// Check whether delete is clicked
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM products WHERE pid = $id");
@@ -75,6 +78,7 @@ if (isset($_GET['delete'])) {
 
 <body style="background-image: url('B1.jpg');">
 
+<!-- Button to navigate through pages -->
     <div class="fab-container">
         <div class="fab fab-icon-holder">
             <i class="fa fa-bars"></i>
@@ -127,12 +131,14 @@ if (isset($_GET['delete'])) {
     
     <h1 class="title1"> <span>CPlus</span> <br>list your products </h1>
 
+    <!-- Display messages -->
     <?php if (isset($message)) {
         foreach ($message as $message) {
             echo '<span class="message">' . $message . '</span>';
         }
     } ?>
 
+<!-- Form to add new products -->
     <div class="container">
         <div class="admin-product-form-container">
             <form action="<?php $_SERVER[
