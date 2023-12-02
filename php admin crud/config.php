@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'root', '', 'user_form');
+$conn = mysqli_connect('localhost', 'root', 'wine24567', 'user_form');
 
 ?>
