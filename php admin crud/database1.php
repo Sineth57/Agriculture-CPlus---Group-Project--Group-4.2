@@ -1,6 +1,6 @@
 <?php
 @include 'config.php';
-
+// $user_id = $_SESSION['user_id'];
 // Check whether the delete parameter is submitted
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
@@ -32,6 +32,8 @@ if (isset($_POST['submit'])) {
         die('Error in SQL query: ' . mysqli_error($conn));
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +125,7 @@ if (isset($_POST['submit'])) {
                     echo '<p><strong>Description:</strong> ' . $row['description'] . '</p>';
                     echo '<p><strong>Price:</strong> Rs. ' . $row['price'] . '/-</p>';
                     echo '<a href="userDetails.php?pid=' . $row['pid'] . '" class="contact-button">';
-                    echo '<i class="fas fa-edit"></i> Contact';                 
+                    echo '<i class="fas fa-edit"></i> More Details';                 
                     echo '</a>';
 
                     echo '<form method="POST" action="cart.php" class="add-to-cart-form">';
@@ -173,16 +175,29 @@ if (isset($_POST['submit'])) {
                             <p>Price: Rs. <?php echo $row['price']; ?>/-</p>
                         </div>
                         <div class="button"><a href="userDetails.php?pid=<?php echo $row['pid']; ?>" class="btn">
-                            <i class="fas fa-edit"></i> Contact
+                            <i class="fas fa-edit"></i> More Details
                         </a></div>
                         <form method="POST" action="cart.php">
                             <input type="hidden" name="product_id" value="<?php echo $row['pid']; ?>">
-                            <input type="submit" name="add_to_cart" value="Add to Cart" class="btn">
+                            <input type="submit" id="addToCart"  name="add_to_cart" value="Add to Cart" class="btn">
                         </form>
                     </div>
                 </div>
             <?php } ?>
     </div>
+
+    <script>
+        // Script to prevent resubmitios 
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("addToCart").addEventListener("click", function() {
+            this.disabled = false;
+          
+        });
+    });
+</script>
+
+
+
 </body>
 
 </html>

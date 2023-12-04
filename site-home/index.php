@@ -15,7 +15,7 @@
     <!--start fab-floating action button (messenger icon)-->
     <div class="fab-container">
         <div class="fab fab-icon-holder">
-            <a href="www.messenger.com"><img id="imgimgimg" src="./img/messenger.png" alt="img"></a>
+            <a href="https://www.facebook.com/profile.php?id=100086263041162&mibextid=ZbWKwL"><img id="imgimgimg" src="./img/messenger.png" alt="img"></a>
         </div>
     </div>
     <!--end fab-->
@@ -36,7 +36,7 @@
                         <li><a href="#top" data-after="Home">Home</a></li>
                         <li><a href="#service" data-after="Service">Services</a></li>
                         <li><a href="#blog" data-after="Blog">Blog</a></li>
-                        <li><a href="#about" data-after="About">About</a></li>
+                        <li><a href="#about" data-after="About">About us</a></li>
                         <li><a href="#contact" data-after="Contact">Contact</a></li>
                         <li><a href="FAQ.html" data-after="FAQ">FAQ</a></li>
                         <li><a href="../user_page.php" data-after="Profile">Profile</a></li>
