@@ -135,4 +135,4 @@ if (isset($_GET['id'])) {
 
 // Closing the database connection
 mysqli_close($conn);
-?>
+?>  

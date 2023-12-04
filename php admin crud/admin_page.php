@@ -4,6 +4,12 @@
 
 // Check whether the product add is submitted 
 if (isset($_POST['add_product'])) {
+
+    if (!isset($_SESSION['user_id'])) {
+        // If User is not logged in, redirect to the login page
+        header('Location: ../login1.php');
+        exit();
+    }
     $product_userid = $_POST['product_userid'];
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];

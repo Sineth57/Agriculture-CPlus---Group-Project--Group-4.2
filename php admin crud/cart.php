@@ -6,6 +6,11 @@ include 'config.php';
 
 // Check whether the add_to_cart form is submitted
 if (isset($_POST['add_to_cart'])) {
+    if (!isset($_SESSION['user_id'])) {
+        // User is not logged in, redirect to the login page
+        header('Location: ../login1.php');
+        exit();
+    }
     $product_id = $_POST['product_id'];
     $user_id = $_SESSION['user_id'];
 
@@ -17,9 +22,9 @@ if (isset($_POST['add_to_cart'])) {
         // Add the product to the user's cart
         $addToCartQuery = "INSERT INTO cart (user_id, product_id) VALUES ($user_id, $product_id)";
         mysqli_query($conn, $addToCartQuery);
-        echo 'Product added to cart successfully.';
+        $message[] = 'Product added to cart successfully.';
     } else {
-        echo 'Product is already in the cart.';
+        $message[] =  'Product is already in the cart.';
     }
 }
 
@@ -46,11 +51,21 @@ function getUserCart($conn, $userId)
 // Check whether the 'delete_cart_item' form is submitted
 if (isset($_POST['delete_cart_item'])) {
     $cart_item_id = $_POST['cart_item_id'];
-    $deleteCartItemQuery = "DELETE FROM cart WHERE pid = $cart_item_id";
-    mysqli_query($conn, $deleteCartItemQuery);
+
+    // Delete the cart item from the database
+    $deleteCartItemQuery = "DELETE FROM cart WHERE product_id = $cart_item_id";
+    $deleteCartItemResult = mysqli_query($conn, $deleteCartItemQuery);
+
+    if ($deleteCartItemResult) {
+        $message[] = 'Product removed from the cart successfully.';
+    } else {
+        $message[] = 'Error removing product from the cart: ' . mysqli_error($conn);
+    }
 }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +76,11 @@ if (isset($_POST['delete_cart_item'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="css/style.css"> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 
 </head>
 
@@ -102,7 +121,7 @@ if (isset($_POST['delete_cart_item'])) {
             </li>
         </a>
 
-        <a href="../site-home/#profile">
+        <a href="../user_page.php">
             <li>
                 <div class="fab-icon-holder">
                     <i class="fas fa-user-circle"></i>
@@ -112,6 +131,13 @@ if (isset($_POST['delete_cart_item'])) {
         </a>
     </ul>
 </div>
+
+  <!-- Display messages -->
+  <?php if (isset($message)) {
+        foreach ($message as $message) {
+            echo '<span class="message">' . $message . '</span>';
+        }
+    } ?>
 
 <!-- <br><br><br> <br><br><br> -->
 <!-- Table to display cart products -->
@@ -126,7 +152,7 @@ if (isset($_POST['delete_cart_item'])) {
                 <th>product Name</th>
                 <th>product description</th>
                 <th>product price</th>
-                <th>Contact</th>
+                <!-- <th>Contact</th> -->
                 <th>Action</th>
             </tr>
         </thead>
@@ -147,26 +173,36 @@ if (isset($_POST['delete_cart_item'])) {
                 echo '<td>Rs. ' . $item['price'] . '/-</span></td>';
                 echo '<td>';
                 echo '<a href="userDetails.php?pid=' . $item['pid'] . '" class="btn">';
-                echo '<i class="fas fa-edit"></i> Contact';
+                echo '<i class="fas fa-edit"></i> More Details';
                 echo '</a>';
-                echo '</td>';
-                echo '<td>';
+                // echo '</td>';
+                // echo '<td>';
                 echo '<form method="post">';
                 echo '<input type="hidden" name="cart_item_id" value="' . $item['pid'] . '">';
-                echo '<input type="submit" class="btn" name="delete_cart_item" value="Delete">';
+                echo '<input type="submit" class="btn" id="deleteItem" name="delete_cart_item" value="Delete">';
                 echo '</form>';
                 echo '</td>';
                 echo '</tr>';
             }
         } else {
-            echo '<p>Your cart is empty.</p>';
+           
+        //  echo 'Your cart is empty.';
         }
         ?>
     </table>
 </div>
 
-<br>
-<!-- <a href="checkout.php">Proceed to Checkout</a> -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("deleteItem").addEventListener("click", function() {
+            this.disabled = false;
+           
+        });
+    });
+</script>
+
+
 </body>
 
 </html>

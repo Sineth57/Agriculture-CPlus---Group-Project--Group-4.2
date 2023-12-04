@@ -36,7 +36,7 @@
                         <li><a href="#top" data-after="Home">Home</a></li>
                         <li><a href="#service" data-after="Service">Services</a></li>
                         <li><a href="#blog" data-after="Blog">Blog</a></li>
-                        <li><a href="#about" data-after="About">About</a></li>
+                        <li><a href="#about" data-after="About">About us</a></li>
                         <li><a href="#contact" data-after="Contact">Contact</a></li>
                         <li><a href="FAQ.html" data-after="FAQ">FAQ</a></li>
                         <li><a href="../user_page.php" data-after="Profile">Profile</a></li>
