@@ -74,7 +74,7 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
                 </li>
             </a>
 
-            <a href="/site-home/#service">
+            <a href="./site-home/#service">
                 <li>
                     <div class="fab-icon-holder">
                         <i class="fas fa-book" aria-hidden="true"></i>
@@ -83,7 +83,7 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
                 </li>
             </a>
 
-            <a href="/site-home/#contact">
+            <a href="./site-home/#contact">
                 <li>
                     <div class="fab-icon-holder">
                         <i class="fas fa-comments"></i>
@@ -139,11 +139,6 @@ $notifications = $select_notifications->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
 
-
-            <?php foreach ($notifications as $notification) : ?>
-                <li><?= $notification['message'] ?> - <?= $notification['timestamp'] ?></li>
-            <?php endforeach; ?>
-     
 
 <script>
     function toggleNotifications() {
