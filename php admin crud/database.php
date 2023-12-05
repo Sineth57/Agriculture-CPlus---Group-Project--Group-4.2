@@ -12,11 +12,6 @@ if (isset($_GET['delete'])) {
 
 
 <?php
-// $servername = 'localhost';
-// $username = 'root';
-// $password = '';
-// $dbname = 'user_form';
-// $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die('Connection failed: ' . mysqli_connect_error());
 } // Retrieve search query from search bar
@@ -39,6 +34,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/database1.css">
 
 
     <title>Admin Page - User Products</title>
@@ -102,10 +98,13 @@ if (isset($_POST['submit'])) {
     <!-- Table to display products in search -->
     <div class="product-display">
 
-        <form action="" method="POST">
-            <input class="searchbar" type="text" name="search" placeholder="Search products...">
-            <input class="searchbutton" type="submit" name="submit" value="Search">
-        </form>
+       <!-- Search bar -->
+       <div class="search-container">
+            <form action="" method="POST">
+                <input class="search-bar" type="text" name="search" placeholder="Search products...">
+                <input class="search-button" type="submit" name="submit" value="Search">
+            </form>
+        </div>
 
         <br><br>
         <table class="product-display-table">
@@ -160,6 +159,7 @@ if (isset($_POST['submit'])) {
                     <th>product name</th>
                     <th>product price</th>
                     <th>product description</th>
+                    <th>Seller Address</th>
                     <th>phone number</th>
                     <th>action</th>
                 </tr>
@@ -175,6 +175,7 @@ if (isset($_POST['submit'])) {
                 <td><?php echo $row['name']; ?></td>
                 <td>Rs.<?php echo $row['price']; ?>/-</td>
                 <td><?php echo $row['description']; ?></td>
+                <td><?php echo $row['nameAddress']; ?></td>
                 <td><?php echo $row['pnumber']; ?></td>
 
                 <td>

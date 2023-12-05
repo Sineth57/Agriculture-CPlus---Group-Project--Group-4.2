@@ -169,7 +169,7 @@ if (isset($_POST['submit'])) {
                             <p> <?php echo $row['name']; ?></p>
                         </div>
                         <div class="product-description">
-                            <p>Description: <?php echo $row['description']; ?></p>
+                            <p><b>Description:</b> <?php echo $row['description']; ?></p>
                         </div>
                         <div class="product-price">
                             <p>Price: Rs. <?php echo $row['price']; ?>/-</p>
