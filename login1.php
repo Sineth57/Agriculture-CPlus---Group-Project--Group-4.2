@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
             // Store value of cart_id
             $_SESSION['cart_id'] = $row['cart_id'];
 
-            header('location:user_page.php');
+            header('location:./site-home/index.php');
         } else {
             $message[] = 'No user found!';
         }
@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login1.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
     <title>Login page</title>
 </head>
 

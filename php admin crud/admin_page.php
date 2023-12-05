@@ -5,11 +5,11 @@
 // Check whether the product add is submitted 
 if (isset($_POST['add_product'])) {
 
-    if (!isset($_SESSION['user_id'])) {
-        // If User is not logged in, redirect to the login page
-        header('Location: ../login1.php');
-        exit();
-    }
+    // if (!isset($_SESSION['user_id'])) {
+    //     // If User is not logged in, redirect to the login page
+    //     header('Location: ../login1.php');
+    //     exit();
+    // }
     $product_userid = $_POST['product_userid'];
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
@@ -73,10 +73,10 @@ if (isset($_GET['delete'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin page</title>
+    <title>Add Products</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     

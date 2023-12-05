@@ -45,6 +45,7 @@ if (isset($_POST['send_notificationOne'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Notifications</title>
     <link rel="stylesheet" href="css/sendingNotification.css"> 
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
   
 
 <body style="background-image: url('B1.jpg');">

@@ -57,9 +57,10 @@ if (!$result) {
 
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/database1.css">
 
 
-    <title>Database</title>
+    <title>Products</title>
 </head>
 
 <body style="background-image: url('B1.jpg');">
@@ -120,11 +121,13 @@ if (!$result) {
     <div class="product-display">
 
     <!-- Search bar -->
-        <form action="" method="POST">
-            <input class="searchbar" type="text" name="search" placeholder="Search products...">
-            <input class="searchbutton" type="submit" name="submit" value="Search">
-        </form>
-
+       
+        <div class="search-container">
+            <form action="" method="POST">
+                <input class="search-bar" type="text" name="search" placeholder="Search products...">
+                <input class="search-button" type="submit" name="submit" value="Search">
+            </form>
+        </div>
         <br><br>
         <!-- Display searched products -->
         <table class="product-display-table">

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C PLUS</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <link rel="shortcut icon" type="x-icon" href="./img/logo.png">
 </head>
 
 <body>
@@ -55,7 +55,7 @@
                 <source src="img/video.mp4" type="video/mp4">
             </video>
             <div>
-                <h1>Welcome to Agri-Zone</h1>
+                <h1>Welcome to CPlus</h1>
                 <br>
                 <h2>JOIN WITH US TO GET YOUR SERVICE</h2>
                 <a href="#service" type="button" class="btn">GET STARTED</a>
@@ -85,14 +85,14 @@
             </div>
             <div class="service-bottom">
                 <div class="service-item">
-                    <div class="icon"><a href="../php admin crud/admin_page.php"><img src="sell.png"></a>
+                    <div class="icon"><a href="../php admin crud/admin_page.php"><img src="./img/sell.png"></a>
                         <!--form to sell items-->
                     </div>
                     <h2><a href="../php admin crud/admin_page.php">Sell Your item</h2></a>
                     <p>List and manage your products directly on the platform and find potential buyers</p>
                 </div>
                 <div class="service-item">
-                    <div class="icon"><a href="../php admin crud/database1.php"><img src="buy.png"></a>
+                    <div class="icon"><a href="../php admin crud/database1.php"><img src="./img/buy.png"></a>
                         <!--form to buy items-->
                     </div>
                     <h2><a href="../php admin crud/database1.php">See Listed items</h2></a>
@@ -121,7 +121,7 @@
                         </p>
                     </div>
                     <div class="blog-img">
-                        <img src="Picture1.png" alt="img">
+                        <img src="./Blog/Picture1.png" alt="img">
                     </div>
                 </div>
                 <div class="blog-item">
@@ -137,7 +137,7 @@
                             Cardamom Oil is used for flavoring of beverages and drinks such as coffee and tea.</p>
                     </div>
                     <div class="blog-img">
-                        <img src="Picture2.png" alt="img">
+                        <img src="./Blog/Picture2.png" alt="img">
                     </div>
                 </div>
                 <div class="blog-item">
@@ -153,7 +153,7 @@
                         </p>
                     </div>
                     <div class="blog-img">
-                        <img src="Picture3.png" alt="img">
+                        <img src="./Blog/Picture3.png" alt="img">
                     </div>
                 </div>
                 <div class="blog-item">
@@ -169,7 +169,7 @@
                         </p>
                     </div>
                     <div class="blog-img">
-                        <img src="Picture4.png" alt="img">
+                        <img src="./Blog/Picture4.png" alt="img">
                     </div>
                 </div>
             </div>

@@ -9,6 +9,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>User Information</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
 
 </head>
 
