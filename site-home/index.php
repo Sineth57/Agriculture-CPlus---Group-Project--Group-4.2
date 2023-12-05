@@ -8,6 +8,16 @@
     <title>C PLUS</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="x-icon" href="./img/logo.png">
+    <style>
+    body {
+        background: url(B1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -65,15 +75,6 @@
     </section>
     <!--end top-->
 
-    <style>
-    body {
-        background: url(B1.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-    }
-    </style>
 
     <!--start service-->
     <section id="service">
