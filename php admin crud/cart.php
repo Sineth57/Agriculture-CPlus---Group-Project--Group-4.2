@@ -6,10 +6,12 @@ include 'config.php';
 
 // Check whether the add_to_cart form is submitted
 if (isset($_POST['add_to_cart'])) {
+
     if (!isset($_SESSION['user_id'])) {
         // User is not logged in, redirect to the login page
         header('Location: ../login1.php');
         exit();
+
     }
     $product_id = $_POST['product_id'];
     $user_id = $_SESSION['user_id'];
@@ -77,11 +79,10 @@ if (isset($_POST['delete_cart_item'])) {
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="css/style.css"> 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="shortcut icon" type="x-icon" href="logo.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
 
 </head>
 
